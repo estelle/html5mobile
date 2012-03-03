@@ -1,0 +1,874 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS APIs</title>
+
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel="stylesheet"> 
+<link rel="stylesheet" href="images/screen.css" media="projection, screen"/> 
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li class="button cancel" id="back">Back</li>
+            <li class="button done" id="next">Next</li>
+        </ul>
+    </nav>
+</header>
+
+<div id="presentation">
+<div id="presentation-counter"></div>
+
+<div id="slides">
+<!-- PRESENTATION -->
+
+<div class="slide intro">
+<header><h1>HTML5 Web Workers</h1></header>
+<section class="content"> 
+</section>
+</div>
+
+<div class="slide normal">
+<header><h1>Why Web Workers</h1></header>
+<section class="content">
+<p>Single threaded UI</p>
+<ul>
+	<li>setTimeout</li>
+    <li>setInterval</li>
+    <li>requestAnimationFrame (prefixed: IE10, FF8, Chrome 16)</li>
+</ul>
+<p>Useful for heavy JS loads, such as...
+<ul>
+	<li>calculate prime numbers</li>
+	<li>client-side database operations</li>
+	<li>large JSON string parsing</li>
+	<li>image / video processing</li>
+</ul>
+</section>
+</div>
+
+<div class="slide normal">
+<header><h1>Introduction To Web Workers</h1></header>
+<section class="content"> 
+ 
+<p>Access to:</p>
+<ul>
+	<li> navigator</li>
+    <li>location object</li>
+    <li>Object, Array, Date, Math, String objects</li>
+    <li>XMLHttpRequest object</li>
+    <li>setTimeout() and setInterval() methods</li>
+</ul>
+<p>but not the DOM or caller</p>
+<ul class="icons" style="clear: both;">
+     <li class="chrome">Chrome 4</li>
+     <li class="safari">Safari 4</li>
+     <li class="firefox">Firefox 3.5 </li>
+     <li class="opera ">Opera 10.6</li>
+     <li class="ie new">IE 10</li>
+     <li class="txt">Not on android or opera mini</li>
+ </ul>
+</section>
+</div>
+
+
+<div class="slide normal">
+<section class="content" style="margin-top:-10px">
+<p>Create a worker</p>
+<pre>var workerName = new Worker('javascriptFile.js');</pre> 
+<p>Communicate with worker</p>
+<pre>workerName.postMessage(message_for_worker);</pre>
+<p>Listen to worker</p>
+<pre>self.onmessage = function (event) { 
+	var theMessage = event.data;
+}</pre>
+<p>Error Handling</p>
+<pre>self.onerror = function(error){
+	var caller = error.filename;
+	var errorLineNumber = error.lineno;
+    var errorMsg = error.message;
+}</pre>
+</section>
+</div>
+
+
+<div class="slide normal"> 
+     <header><h1>Web Workers: Code Lab</h1></header> 
+     <section class="content"><div style="height: 550px; overflow:scroll">
+     <p>In this lab, we are going to create a worker that calculate a ﬁbonacci number sequence and display the result to the page
+
+that has spawned the worker</p>
+
+<p>Currently, the ﬁbonacci sequence is calculated in the same thread as the UI
+
+thread. For small sequences, it works ﬁne but if you ask for bigger sequences, it starts to become problematic and the
+
+browser thinks that the script is unresponsive</p>
+
+<p>In your  <a href="https://github.com/estelle/html5training/tree/master/html5_labs/web_worker">labs folder</a>  open index.html in a browser. The button to calculate with web
+
+worker is not implemented yet. Try to calculate a ﬁbonacci sequence of 10. Then try with 100</p>
+
+<ol>
+	<li>In your labs folder, ﬁnd the web_worker folder and edit the script.js ﬁle</li>
+
+<li>In the code, look for a // TODO 1. Here we want to create a new Worker called ﬁb_worker using the worker ﬁle
+
+named worker.js (one line)</li>
+
+<li>Look for a // TODO 2. Here we are in the event listener for the message event. We want to display the message
+
+from the worker. Replace xxxxxx by the actual message from the worker</li>
+
+<li>Look for a // TODO 3. Here we want to send the num variable as a message to the worker (one line)</li>
+
+<li>Now we are done with the main UI "thread", it is time to edit the worker, worker.js</li>
+
+<li>Look for a // TODO 4. Here we want to send the number from the suite to the main window (one line)
+
+<br>• The message to send is: fibonacci(i)</li>
+
+<li> Look for a // TODO 5. Here we need to use the show method deﬁned above and pass the message sent from the
+
+main window as a parameter (one line)</li>
+
+<li> You can now try the ﬁnal result by opening the index.html ﬁle in Safari, Chrome, Opera and Firefox</li>
+</ol>
+<p>
+
+Note:
+
+Because of Chrome security restrictions, you cannot run your app from the file:// scheme unless you start
+
+Chrome with the --allow-file-access-from-files ﬂag</p></div>
+     </section>
+ </div>
+
+
+
+
+
+
+
+
+<div class="slide intro">
+<header><h1>HTML5 Messaging APIs</h1></header>
+<section class="content"> 
+</section>
+</div>
+
+ 
+ 
+ <div class="slide normal"> 
+     <header><h1>Same Origin Policy: Security</h1></header> 
+     <section class="content">
+     <table>
+  <tr>
+    <th scope="col">URL</th>
+    <th scope="col">Same Origin</th>
+    <th scope="col">Issue</th>
+  </tr>
+  <tr>
+    <td>http://www.a.com/</td>
+    <td>Yes</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>http://www.a.com/folder/page.php</td>
+    <td>Yes</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>https://www.a.com/</td>
+    <td>No</td>
+    <td>Different Protocol</td>
+  </tr>
+  <tr>
+    <td>http://blog.a.com</td>
+    <td>No</td>
+    <td>Different Host</td>
+  </tr>
+  <tr>
+    <td>http://www.a.com</td>
+    <td>No</td>
+    <td>Different Port</td>
+  </tr>
+</table> 
+
+<p>OLD: Solutions: JSON, Proxy, PHP CURL, iFrames</p>
+<p>New Solutions: CORS, Cross-document Messaging</p>
+     </section>
+ </div>
+ 
+ 
+
+<div class="slide intro"> 
+     <header><h1>CORS: <br/>
+     Cross-Origin Resource Sharing</h1></header> 
+     <section class="content"> 
+     </section>
+ </div>
+ 
+  
+ <div class="slide normal"> 
+     <header><h1>CORS</h1></header> 
+     <section class="content"> 
+     	<p>Cross-Origin Resource Sharing</p>
+        <p>Method of performing XMLHttpRequests across domains</p>
+        <p>Need correct headers sent and received</p>
+        <p>Allows responses to permitted origin domains (or * if public)</p>
+     	<p>IE8 - <a href="http://msdn.microsoft.com/en-us/library/cc288060(VS.85).aspx">XDomainRequest Object</a></p>
+		<p>IE9 &amp; modern browsers: XMLHttpRequest</p>
+     <ul class="icons" style="clear: both;">
+         <li class="chrome">Chrome 4</li>
+         <li class="safari">Safari 4</li>
+         <li class="firefox">Firefox 3.5 </li>
+         <li class="opera new">Opera 12</li>
+         <li class="ie new">IE 8 / 10</li>
+         <li class="txt">Not opera mini</li>
+ 	 </ul>
+     
+     </section>
+ </div>
+ 
+ 
+ <div class="slide normal"> 
+     <header><h1>CORS Headers (examples)</h1></header> 
+     <section class="content">
+<p>Request Headers</p>
+<pre>Origin: http://requestingdomain.com
+Access-Control-Request-Headers: <strong>PASSPHRASE</strong>
+Access-Control-Request-Method:POST
+</pre>
+<p>Response Headers</p>    
+<pre>Access-Control-Allow-Origin: * # or domain
+Access-Control-Allow-Methods:POST, GET, OPTIONS
+Access-Control-Allow-Headers: <strong>PASSPHRASE</strong>
+Access-Control-Max-Age: 86400</section>
+ </div>
+ 
+<div class="slide normal"> 
+     <header><h1>GET or POST simple request</h1></header> 
+     <section class="content">
+<p>CORS feature detection <code>withCredentials</code> Property</p>
+<pre>if (XMLHttpRequest) {
+    var request = new XMLHttpRequest();
+    var url = http://otherserver.com/resource;
+    
+    // FEATURE DETECTION
+    if (request.withCredentials !== undefined) {
+    
+    	
+      	request.open('GET', url, true);
+   		request.onreadystatechange = handleEvent;
+   		request.send();
+    }
+}</pre> 
+<p><a href="http://arunranga.com/examples/access-control/simpleXSInvocation.html" target="play">Read the http headers </a></p>
+     </section>
+ </div>
+ 
+ 
+ 
+ <div class="slide normal"> 
+     <header><h1>Credentialed Requests</h1></header> 
+     <section class="content">
+<p>Similar, but sends http cookie header with request (not the default)</p>
+     <pre>if (XMLHttpRequest) {
+    var request = new XMLHttpRequest();
+    var url = http://otherserver.com/resource;
+    
+    // FEATURE DETECTION
+    if (request.withCredentials !== undefined) {
+         request.open('GET', url, true);
+         <strong>request.withCredentials = "true";</strong>
+         request.onreadystatechange = handler;
+         request.send();
+      }
+}</pre> 
+<p><a href="http://arunranga.com/examples/access-control/credentialedRequest.html" target="play">Read the http headers </a></p>
+     </section>
+ </div>
+ 
+ 
+ 
+ <div class="slide normal"> 
+     <header><h1>Preflighted Request</h1></header> 
+     <section class="content">
+     <p>get "preapproval" for request</p>
+     <ol>
+     	<li>Send <code>OPTIONS</code> header from requestor <br><i>is reqest safe to send</i></li>
+        <li>Other domain responds: </li>
+        <li>Requestor makes request</li>
+     </ol> 
+     <p>Code snippet &rarr;</p>
+     <p><a href="http://arunranga.com/examples/access-control/preflightInvocation.html" target="play">Read the http headers </a></p>
+     </section>
+ </div>
+ 
+ <div class="slide normal"> 
+     <section class="content" style="margin:0;padding: 0">
+<pre style="position: relative; top:-30px;">var request = new XMLHttpRequest();
+var url = 'http://otherdomain.com/file';
+var requestHistoryText;
+var body = 'some text';
+function callOtherDomain(){
+    if(request)  {
+        request.open('POST', url, true);
+        request.setRequestHeader('X-MADEUP', 'pingpong');
+        request.setRequestHeader('Content-Type', 'application/xml');
+        request.onreadystatechange = handleEvent;
+        request.send(body); 
+    } else { console.log("Request Failed"); }
+}
+function handleEvent(evtXHR) {
+    if (request.readyState == 4) {
+        if (request.status == 200)  {
+            var response = request.responseText;
+            requestHistoryText = document.createTextNode(response);
+            var textDiv = document.getElementById("textDiv");
+            textDiv.appendChild(requestHistoryText);
+        } else {
+            console.log("request Errors Occured " + request.readyState + " and the status is " + request.status);
+        }
+    } else {
+        dump("currently the application is at" + request.readyState);
+    }
+}</pre> 
+</section>
+ </div>
+ 
+ 
+ 
+<div class="slide intro"> 
+     <header><h1>Cross-document Messaging</h1></header> 
+     <section class="content">
+     <p><a href="https://github.com/estelle/html5training/tree/master/html5_labs/messaging">Code Lab Files</a> </p>
+     </section>
+ </div>
+ 
+
+
+<div class="slide normal">
+<header><h1>Cross-document Messaging</h1></header>
+<section class="content">
+<pre>otherWindow.postMessage(message, targetOrigin);</pre>
+<dl>
+<dt>otherWindow</dt>
+<dd>reference to other window via iframe contentWindow property, window.open return object or index value of window.frames</dd>
+<dt>message</dt>
+<dd>Data to be sent to otherWindow</dd>
+<dt>targetOrigin</dt>
+<dd>Security feature: Specifies what the origin of otherWindow must be for the event to be dispatched</dd>
+</dl>
+<p>otherWindow needs to listen for message</p>
+<ul class="icons" style="clear: both;">
+         <li class="chrome">Chrome</li>
+         <li class="safari">Safari 4</li>
+         <li class="firefox">Firefox 3 </li>
+         <li class="opera new">Opera 9.5</li>
+         <li class="ie half">IE 8</li>
+         <li class="txt">Supported Android, iOS, Opera Mini</li>
+ 	 </ul> 
+</section>
+</div>
+
+<div class="slide normal"> 
+     <header><h1>otherWindow snippet</h1></header> 
+     <section class="content"> 
+     <pre>window.addEventListener("message", handleMessage, false);  
+  
+function handleMessage(event) {  
+  if (event.<strong>origin</strong> !== "http://messageOriginator.com")  
+    return;  
+  
+  // safe ... handle message
+  var receivedMsg = event.<strong>data</strong>;
+  var receivedFromWindow = event.<strong>source</strong>;
+    
+}</pre> 
+<dl>
+<dt>origin</dt>
+<dd></dd>
+<dt>data</dt>
+<dd>Data received from message</dd>
+<dt>source</dt>
+<dd>Reference to sending window, enables 2-way communication</dd>
+</dl>
+     </section>
+ </div>
+<div class="slide normal"> 
+     <header><h1>Security<br>
+&nbsp;</h1></header> 
+     <section class="content"> 
+     <h1>ALWAYS VERIFY origin AND source TO <br>
+AVOID MALICIOUS CODE</h1>
+     <p>Also, dont' include message listener if none expected</p>
+     <p>And, always verify the syntax of the received message.</p>
+     </section>
+ </div>
+
+
+<div class="slide intro">
+<header><h1>HTML5 Web Sockets</h1></header>
+<section class="content"> 
+<p>Real-time, full duplex communication using a single socket</p>
+</section>
+</div>
+
+<div class="slide normal">
+<header><h1>Previous Web Communication Options</h1></header>
+<section class="content"> 
+<p>Half duplex solutions that are immediately old, and require http requests (including sending headers (with) cookies back and forth)</p>
+<ul>
+	<li>HTTP requests &amp; Response</li>
+    <li>AJAX - asynchronous requests &amp; responses, including polling</li>
+    </ul>
+</section>
+</div>
+
+<div class="slide normal">
+<header><h1>Web Sockets</h1></header>
+<section class="content"> 
+<ul>
+<li>two-way communication with a remote host</li>
+<li>Full-duplex communication channel </li>
+<li>Operates through a single socket </li>
+<li>Reduced network traffic &amp; latency </li>
+<li>Handle proxies and firewalls</li>
+<li>upstream and downstream over a single connection</li>
+<li>Less server stress &rarr; more concurrent connections</li>
+</ul>
+<ul class="icons" style="clear: both;">
+         <li class="chrome">Chrome 4 (old) <br>
+ 14 (new)<br>
+</li>
+         <li class="safari">Safari 5 (old)<br>
+<br>
+</li>
+         <li class="firefox">Firefox 4 (old) <br>
+ 6 (prefix) <br>
+ 11 </li>
+         <li class="opera new">Opera 11 (old)<br>
+<br>
+</li>
+         <li class="ie new">IE 10<br>
+<br>
+</li>
+         <li class="txt">Old syntax supported iOS &amp; OperaMobile. Not Android or O-Mini</li>
+ 	 </ul> 
+</section>
+</div>
+
+<div class="slide normal">
+<header><h1>Serer / Client Handshake</h1></header>
+<section class="content">
+<pre>GET /chat HTTP/1.1
+Connection: Upgrade 
+Host: example.com
+Origin: http://example.com 
+Sec-WebSocket-Key1: 284 ^rI 2 447 8 Me1*V 8<span style="color:red">*</span>
+Sec-WebSocket-Key2: 30]8N763$84 12><span style="color:red">*</span>
+Upgrade: WebSocket 
+64:6E:AC:0C:FD:90:8A:51<span style="color:red">*</span>   <span style="color:red">*</span>(Random tokens for 16 byte token)</pre>
+
+<pre>HTTP/1.1 101 WebSocket Protocol Handshake
+Upgrade: WebSocket
+Connection: Upgrade
+Sec-WebSocket-Origin: http://example.com
+Sec-WebSocket-Location: ws://example.com/chat
+79:C5:C1:29:4A:60:8B:34:66:D5:61:10:C2:0C:4F:AA <span style="color:red">*</span>The token</pre>
+
+<p>Request headers from the client plus the 8 byte token to say that the client handshake has been read. Once handshake established, the server can send messages to client</p>
+</section>
+</div>
+
+<div class="slide normal">
+<header><h1>Web Socket API Features</h1></header>
+<section class="content">
+<pre>
+// ready state
+CONNECTING = 0
+OPEN = 1
+CLOSED = 2
+readyState
+bufferedAmount
+
+// networking
+onopen
+onmessage
+onclose
+send(data)
+close()</pre>
+</section>
+</div>
+
+</section>
+</div>
+
+<div class="slide normal">
+<header><h1>Methods</h1></header>
+<section class="content"> 
+<p>Create Socket</p>
+<pre>var socket=new WebSocket("ws://127.0.0.1:8080/")</pre>
+<p>Event Listeners</p>
+<pre>socket.onopen = function(){
+  console.log("Connection to the socket is now open");
+}
+socket.onmessage = function(e){
+  console.log("Message received: " + e.data);
+}
+socket.onclose = function(e){
+  console.log("Connection to the socket is closed");
+}</pre> 
+<p>Send Message</p>
+<pre>socket.send("This is the message sent by the client")</pre> 
+</section>
+</div>
+
+
+<div class="slide normal"> 
+     <header><h1>Libraries</h1></header> 
+     <section class="content">
+     <p><a href="http://estelle.github.com/html5training/html5_labs/web_sockets/ChatWebSocket/index.html">ChatWebSocket Library</a></p>
+     <p><a href="http://estelle.github.com/html5training/html5_labs/web_sockets/jetty/">Jetty Library</a></p>
+     </section>
+</div>
+
+
+<div class="slide">
+      <header>
+         <h1>History API
+         </h1><p>Load data &amp;  change browser address bar (without reloading)</p>
+      </header>
+      <section class="content">
+<pre contenteditable>
+window.history.<b>pushState(data, title, url)</b> 
+<span class="notes">/* Pushes data into history, with title, and, if provided, the URL.*/<br>
+</span>
+window.history.<b>replaceState(data, title, url)</b> 
+<span class="notes">/* Updates current history entry to given data, with title, and, if provided, URL */</span></pre>
+       
+<pre contenteditable>window.history.<b>length</b> <span class="notes">/* number of entries in session history */</span>
+
+window.history.<b>state</b> <span class="notes">/* current state */</span>
+
+window.history.go( &Delta; )</b> <span class="notes">/*  back or forward &Delta; steps */</span>
+
+window.history.<b>back()</b> <span class="notes">/* Goes back one step &Delta;== -1*/</span>
+
+window.history.<b>forward()</b> <span class="notes">/* Goes forward one step &Delta; = 1*/</span></pre>
+       </pre>
+      </section>
+  </div> 
+
+
+  
+<div class="slide">
+  <header>
+     <h1>Drag and Drop</h1>
+  </header>
+  <section class="content">
+<pre contenteditable>document.addEventListener(<em>'dragstart'</em>, function(event) {
+  event.<b>dataTransfer.setData</b>('text', 'Customized text');
+  event.<b>dataTransfer.effectAllowed</b> = 'copy';
+}, false);
+</pre>
+            <ul id="drag-zone" style="width: 30%; float:left">
+              <li><img src="http://www.sitepointstatic.com/images/books/htmlcss1/3dcover-flat.png" alt="HTML5 &amp; CSS3 for the Real World" style="width: 160px" draggable></li>
+              <li><p draggable contenteditable>Drag this text or the image above to the right. You can even change this text. </p></li>
+            </ul>
+            <div  style="width: 60%; float:right; overflow:hidden">
+            <pre id="drop-zone">Drop Area</pre>
+            <div id="drop-data"></div>
+             <ul class="icons" style="clear: both;">
+                 <li class="chrome">Chrome 8</li>
+                 <li class="safari">Safari</li>
+                 <li class="firefox">Firefox 3.5 </li>
+                 <li class="opera bad">Opera 12?</li>
+                 <li class="ie">IE</li>
+                 <li class="txt">mobile: only Android</li>
+             </ul>
+            </div>
+            <script defer>
+            (function() {
+              var dragZone = document.getElementById('drag-zone');
+              var dropZone = document.getElementById('drop-zone');
+              dragZone.addEventListener('dragstart', function(event) {
+                if (event.target.className) { 
+                  event.target.style.border = "1px solid #888";
+                }
+                return true;
+              }, true);
+              dragZone.addEventListener('dragend', function(event) {
+                if (event.target.className) { // img case
+                  event.target.style.border = "1px solid #888";
+                }
+                else { // text case
+                  event.target.parentNode.style.border = "1px solid #888";
+                }
+                return true;
+              }, true);
+              dropZone.addEventListener('dragenter', function(event) {
+                if (event.preventDefault) event.preventDefault();
+                event.dataTransfer.dropEffect = 'copy';
+                this.className = 'hovering';
+                return false;
+              }, false);
+              dropZone.addEventListener('dragover', function(event) {
+                if (event.preventDefault) event.preventDefault(); // allows us to drop
+                event.dataTransfer.dropEffect = 'copy';
+                return false;
+              }, false);
+              dropZone.addEventListener('dragleave', function(event) {
+                if (event.preventDefault) event.preventDefault(); // allows us to drop
+                this.className = '';
+                return false;
+              }, false);
+              dropZone.addEventListener('drop', function(event) {
+                if (event.preventDefault) event.preventDefault();
+                var imgPassed = null;
+                var dropdata = document.querySelector('#drop-data');
+                var types = event.dataTransfer.types;
+                document.querySelector('#drop-data').textContent = '';
+                this.innerHTML = '';
+                for (var i = 0; i < types.length; i++) {
+                  if (types[i] == 'Files') {
+                    var files = event.dataTransfer.files;
+                    for (var j = 0; j < files.length; j++) {
+                      dropdata.textContent += 'File Name: '+files[j].fileName;
+                      dropdata.textContent += 'File Size: '+files[j].fileSize;
+                    }
+                  }
+                  else {
+                    if (typeof event.dataTransfer.getData(types[i]) !== 'undefined') {
+                      dropdata.innerHTML += '<p><em class="datatypes">'+types[i]+'</em>: <br />'+event.dataTransfer.getData(types[i]).replace(/</g, '&lt;') + '</p>';
+                    }
+                  }
+
+                  if (types[i] == 'text/uri-list') {
+                    imgPassed = event.dataTransfer.getData('text/uri-list');
+                  }
+                }
+                if (imgPassed) {
+                  var cEl = document.createElement('canvas');
+                  cEl.width = 120;
+                  cEl.height = 180;
+                  var ctx = cEl.getContext('2d');
+                  var img_buffer = document.createElement('img');
+                  img_buffer.src = imgPassed;
+                  img_buffer.style.display = 'none';
+                  document.body.appendChild(img_buffer); // this line only needed in safari
+                  img_buffer.onload = function() { ctx.drawImage(img_buffer,0,0,100,140); }
+                  this.appendChild(cEl);
+                } else {
+                  if (event.dataTransfer.getData('text')) {
+                    this.innerHTML = event.dataTransfer.getData('text');
+                  }
+                  else if (event.dataTransfer.getData('text/plain')) {
+                    this.innerHTML = event.dataTransfer.getData('text/plain');
+                  }
+                }
+                return false;
+              }, false);
+            })();
+            </script>
+  </section>
+</div> 
+  
+
+
+     <div class="slide">
+      <header>
+         <h1>File API</h1>
+      </header>
+      <section class="content">
+        <ul>
+          <li>Import from the filesystem or the web.</li>
+          <li>Create new files from scratch.</li>
+          <li>Manipulate existing file data.</li>
+          <li>Store file data on the client.</li>
+          <li>Publish files back to the web.</li>
+        </ul>
+        <ul class="icons" style="clear: both;">
+         <li class="chrome">Chrome 6</li>
+         <li class="safari bad">Safari</li>
+         <li class="firefox">Firefox 3.6 </li>
+         <li class="opera">Opera 11.1</li>
+         <li class="ie new">IE 10</li>
+         <li class="txt">mobile: only Android</li>
+     </ul>
+        <p>Tutorial: <a href="http://www.htmlfivewow.com/">Talk from Google I/O</a></p>
+      </section>
+  </div> 
+  
+  
+  <div class="slide">
+      <header>
+         <h1>File API</h1>
+      </header>
+      <section class="content"> 
+<pre contenteditable>  &lt;input type="file" id="files" accept="image/*" multiple&gt;
+document.querySelector('#files').onchange = function(e) {
+  var files = e.target.files; // FileList of File objects.
+
+  for (var i = 0, f; f = files[i]; ++i) {
+    console.log(f.name, f.type, f.size,
+                f.lastModifiedDate.toLocaleDateString());
+  }
+}; </pre>
+<p>
+      <input type="file" id="filereader-files" class="hidden-input" multiple accept="image/*">
+      <input type=button id="file-select" class="button" value="Select image files">  </p>
+      <pre contenteditable><output id="filereader-list"></output></pre>
+  
+<div><output id="filereader-list"></output></div>
+<script>
+/*******************************************************************************
+ * FILEREADER - from Google
+ ******************************************************************************/
+document.querySelector('#file-select').addEventListener('click', function(e) {
+  document.querySelector('#filereader-files').click();
+}, false);
+
+document.querySelector('#filereader-files').onchange = function(e) {
+  var files = e.target.files; // FileList
+
+  var output = [];
+  for (var i = 0, f; f = files[i]; ++i) {
+    output.push('<li><b>', f.name, '</b> (',
+        f.type || 'n/a', ') - ', f.size, ' bytes, last modified: ',
+        f.lastModifiedDate.toLocaleDateString(), '</li>');
+  }
+  document.querySelector('#filereader-list').innerHTML =
+      '' + output.join('') + '<br/>';
+};
+</script>
+  </section>
+  </div>
+  
+  
+  
+  
+   <div class="slide">
+  <header>
+     <h1>JS Events and Methods
+     </h1>
+  </header>
+  <section class="content">
+ <pre contenteditable>var elements = document.getElementsByClassName(className)</pre>
+ <ul class="icons" style="clear: both;">
+         <li class="chrome">Chrome 6</li>
+         <li class="safari">Safari</li>
+         <li class="firefox">Firefox 3 </li>
+         <li class="opera">Opera</li>
+         <li class="ie new">IE 9</li>
+         <li class="txt">mobile: all</li>
+  </ul>
+  
+ <pre contenteditable>var element = document.querySelector(selectors);
+var element = $(selectors)[0];
+
+var elements = document.querySelectorAll(selectors);
+var elements = $(selectors);</pre>
+<p>Where 'selectors' is a comma separated list of CSS selectors</p>
+  <ul class="icons" style="clear: both;">
+         <li class="chrome">Chrome 6</li>
+         <li class="safari">Safari</li>
+         <li class="firefox">Firefox 3 </li>
+         <li class="opera">Opera</li>
+         <li class="ie">IE 8</li>
+         <li class="txt">mobile: all</li>
+  </ul>
+  </section>
+</div>
+
+   <div class="slide">
+      <header>
+         <h1>classList
+         </h1>
+      </header>
+      <section class="content">
+        <pre contenteditable>&lt;article id=&quot;main&quot; class="blogpost popup"&gt;&lt;/article&gt;</pre>
+        <pre contenteditable>var el = document.getElementById('main').<b>classList</b>;
+var el = document.querySelector('#main').<b>classList</b>;
+el.<b>add</b>('bgimage');<br>el.<b>remove</b>('blogpost');
+el.<b>toggle</b>('popup');
+console.log(el.<b>contains</b>('popup')); // false
+console.log(el.<b>contains</b>('blogpost')); // false
+console.log(el.<b>classList</b>.toString() == el.className); // true</pre>
+        <p>Result:</p>
+        <pre contenteditable>&lt;article id="main" class="bgimage"&gt;&lt;/article&gt;</pre>
+       <ul class="icons" style="clear: both;">
+         <li class="chrome">Chrome</li>
+         <li class="safari new">Safari 5.1</li>
+         <li class="firefox">Firefox </li>
+         <li class="opera">Opera</li>
+         <li class="ie bad">IE 10</li>
+         <li class="txt">mobile: Android 3, Opera 11.1</li>
+  </ul>
+      </section>
+  </div>  
+  
+  
+  
+  
+  <div class="slide" id="notifications-api">
+        
+          <header><h1>Notifications</h1></header>
+          <section>
+          <pre contenteditable>if (window.<b>webkitNotifications.checkPermission</b>() == 0) {
+  window.webkitNotifications.createNotification(picture, title, 
+      content).<b>show</b>();
+} else {
+  window.<b>webkitNotifications.requestPermission</b>();
+}</pre>
+        <div id="notifications-message">
+          <p>
+            <input type="button" class="button" id="request-permission" value="Allow / Reset Notifications"/>
+          </p>
+          
+         
+          <input type="button" class="button" id="show-notification" value="Show notifications"/>
+        </div>
+
+          <script defer="">
+          document.getElementById('request-permission').addEventListener('click', function() {
+            window.webkitNotifications.requestPermission();
+          }, false);
+
+          document.getElementById('show-notification').addEventListener('click', function() {
+            shownNotice();
+          }, false);
+
+         
+		  
+		  function shownNotice(){
+			if (window.webkitNotifications.checkPermission() == 0) {
+			console.log('hi');
+                // note the show()
+                window.webkitNotifications.createNotification('http://standardista.com', 'Estelle Weyl', 'Tthat\'s all we have for you today folks').show();
+              } else {
+				  
+                alert('You have to select "Set notification permissions for this page" first notifications to work.');
+                return;
+              }  
+		  }
+
+        
+          </script>
+
+          </section>
+        </div>
+  
+  
+
+<!-- END of PRESENTATION -->
+</div><!-- slides -->
+</div><!-- presentation -->
+<script src="images/slide.js"></script>
+</body>
+</html>
