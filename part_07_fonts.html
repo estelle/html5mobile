@@ -1,0 +1,470 @@
+<!doctype html>
+<html> 
+  <head> 
+    <!--[if gte IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]--> 
+    <!--[if lt IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <![endif]--> 
+    <meta charset="utf-8" />
+    <title>HTML5 Mobile Mastery</title>
+     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'> 
+   <link rel="stylesheet" href="images/screen.css" media="projection, screen"/>  
+   <link rel="stylesheet" href="css/print.css" media="print"/>
+   <style>
+	
+
+/* text -shadow */
+.textshadow {
+    text-shadow: 
+    0 1px #cccccc, 	
+    0 2px #c9c9c9, 
+    0 3px #bbbbbb, 
+    0 4px #b9b9b9, 
+    0 5px #aaaaaa, 
+    0 6px  1px  rgba(0, 0, 0, 0.1), 
+    0 0    5px  rgba(0, 0, 0, 0.1), 
+    0 1px  3px  rgba(0, 0, 0, 0.3), 
+    0 3px  5px  rgba(0, 0, 0, 0.2), 
+    0 5px  10px rgba(0, 0, 0, 0.25), 
+    0 10px 10px rgba(0, 0, 0, 0.2), 
+    0 20px 20px rgba(0, 0, 0, 0.15);
+	font-size: 60px;
+	font-weight: bold;
+}
+
+.boxshadow b {
+	
+border: 2px solid hsl(328, 100%, 44%);
+float: right;
+height: 80px;
+width: 80px;
+background-color: hsla(0, 100%, 100%, 0.8);
+border-image: initial;
+border-color: black;
+box-shadow: 
+	inset 3px 3px 0 3px #C7573A, 
+	inset -3px -3px 0 3px #BDD9D5, 
+	3px 3px 0 3px #BDD9D5, 
+	-3px -3px 0 3px #C7573A;
+margin: 20px;
+}
+
+.fontfamily td {text-align:center;}
+th span {background-repeat:no-repeat;}
+
+pre.borders {
+	border-radius: 0;
+	box-shadow: 
+    0 0 0 10px red,
+    0 0 0 20px orange,
+    0 0 0 30px yellow,
+    0 0 0 40px green,
+    0 0 0 50px blue,
+    0 0 0 60px purple;
+	width: 80%;	margin: 60px auto;
+}
+/* 
+   brown: C7573A;
+   blue:  BDD9D5;
+*/
+   </style>  
+    
+  </head> 
+  <body> <header>
+    <nav>
+        <ul>
+            <li class="button cancel" id="back">Back</li>
+            <li class="button done" id="next">Next</li>
+        </ul>
+    </nav>
+</header>
+  
+  <div id="presentation">
+  
+   <div id="presentation-counter"></div>
+      
+   <div id="slides">
+   
+  
+
+  
+<!-- OUTLINE -->
+<div class="slide normal"> 
+ <header><h1>Course Outline</h1></header> 
+ <section class="content"> 
+  <ol><li><a href="part_01_selectors.html">Selectors</a></li>
+    <li><a href="part_02_specificity.html">Specificity</a></li>
+    <li><a href="part_03_generated.html">Generated Content</a></li>
+    <li><a href="part_04_media.html">Media Queries</a></li>
+    <li><a href="part_04_media.html#slide10">Debugging</a></li>
+    <li><a href="part_06_colors.html">Colors &amp; Transparency </a></li>
+    <li><a href="part_07_fonts.html">Fonts / Typography </a></li>
+    <li><a href="part_08_backgrounds.html">Backgrounds &amp; Borders </a></li>
+    <li><a href="part_09_gradients.html">Gradients</a></li>
+    <li><a href="part_10_transforms.html">Transforms</a></li>
+    <li><a href="part_11_animation.html">Transitions &amp; Animation</a></li>
+<li><a href="part_12_features.html">Other Features</a></li>
+</ol>
+ </section>
+</div>
+  
+
+
+
+
+
+  
+
+<div class="slide intro"> 
+     <header><h1>Part 7: Fonts</h1></header> 
+    </div>
+    
+   
+<!-- @font-face -->    
+<div class="slide"> 
+<header><h1>@font-face</h1></header> 
+<section class="content"> 
+<pre contenteditable style="font-size: 100%">
+@font-face {
+  font-family: 'blah';
+  src: url('blah.eot');
+  src: url('blah.eot?#iefix') 
+         format('embedded-opentype'),
+     url('blah.woff') format('woff'),
+     url('blah.ttf') format('truetype'),
+     url('blah.svg#blahRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+</pre>
+<pre contenteditable style="font-size: 100%">body {
+  font-family: 'blah', arial, san-serif;
+}</pre>
+
+</section>
+</div>
+     
+<!-- @font-face support-->
+<div class="slide"> 
+<header><h1>@font-face</h1></header> 
+<section class="content">
+<pre contenteditable>@font-face {
+  font-family: yourFontName;
+  src: url(fontfile) [, url(fontfile)]*;
+  [font-weight: bold|normal];
+  [font-style: italic|normal];
+  [charset: characterSet;]
+}</pre>
+
+<table class="fontfamily" cellspacing="0"><thead class="icons">
+	<tr>
+    <th>File</th>
+    <th><span class="chrome browser">Chrome</span></th>
+    <th><span  class="firefox browser">Firefox</span></th>
+    <th><span  class="opera browser">Opera</span></th>
+    <th><span  class="safari browser">Safari</span></th>
+    <th><span  class="ie browser">Internet Explorer</span></th>
+    <th><span  class="safari browser">iOS mobile</span></th>
+    <th><span  class="chrome browser">Android</span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    	<th>EOT</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>✓</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+    	<th>TTF/OTF</th>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>9</td>
+        <td>✓ 4.2</td>
+        <td>✓ 2.2</td>
+    </tr>
+    <tr>
+    	<th>SVG</th>
+        <td>✓</td>
+        <td></td>
+        <td>✓</td>
+        <td>✓</td>
+        <td></td>
+        <td>✓</td>
+        <td>✓ 3</td>
+    </tr>
+    <tr>
+    	<th>WOFF</th>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓ 11.1+</td>
+        <td>✓ 5.1</td>
+        <td>✓ 9</td>
+        <td>✓ 5</td>
+        <td></td>
+    </tr>
+    
+    </tbody>
+    </table>
+  </section>
+  </div>
+  
+<!-- font tips --> 
+<div class="slide normal"> 
+     <header><h1>Issues</h1></header> 
+     <section class="content">
+<dl>
+	<dt>Who owns the font?</dt>
+    <dd>Do you have the legal right to distribute your chosen font?</dd>
+    <dd>No? There are services!</dd>
+    <dt>FOUT</dt>
+    <dd>Flicker of Unstyled Content</dd>
+    <dt>File Size</dt>
+    <dd>Character sets can be huge, so file sizes can be huge</dd>
+    <dd>Need a different file for each font style</dd>
+    <dd>Font services</dd>
+</dl> 
+     </section>
+ </div> 
+ 
+<!-- Google Fonts -->
+<div class="slide object"> 
+		<object data="http://www.google.com/webfonts"  style="height:100%; width: 100%; background:url(images/googlefonts.gif); background-position: top center">
+        </object><header><h1>Google Fonts</h1></header>
+        <a href="http://www.google.com/webfonts" class="objectlink" target="resource">Google Fonts</a>
+</div> 
+
+<!--Font resources -->
+<div class="slide object">
+	<object data="http://www.fontsquirrel.com/fontface/generator"></object>
+    <header><h1>font-squirrel</h1></header>
+    <a href="http://www.fontsquirrel.com/fontface/generator" class="objectlink" target="resource">FontSquirrel @font-face generator</a>
+</div>    
+  
+<div class="slide intro"> 
+     <header><h1>Shadows</h1></header> 
+    </div>
+    
+<!-- Text shadows -->   
+<div class="slide normal"> 
+<header><h1>Text Shadows</h1></header> 
+<section class="content">
+<ul class="opacity" style="padding: 10px 0 30px;">
+<li>
+<pre contenteditable>
+text-shadow: left top blur color;
+</pre>
+</li>
+<li class="angled" style="padding-right: 10px;"><span style="text-shadow: 0 5px 1px  rgba(0,0,0,0.2);">Transparent Shadows</span>
+<pre contenteditable style="text-shadow: 0 5px 1px  rgba(0,0,0,0.2); margin-left: 20px;">
+.trans { text-shadow: 0 5px 1px rgba(0,0,0,0.2);}</pre></li>
+<li class="angled" style="padding-right: 10px;"><span style="text-shadow: 0 5px 1px  #666">Solid Shadows</span>
+
+<pre contenteditable style="margin-left: 20px;text-shadow: 0 5px 1px  #666">
+.solid { text-shadow: 0 5px 1px #999;}</pre></li>
+</ul>
+</section>
+</div>
+     
+<!-- Text Shadow -->
+<div class="slide"> 
+<section class="content"> 
+<h1 class="textshadow" contenteditable style="margin: -10px 0">Text Shadow</h1>
+<pre contenteditable style="text-shadow:  0 2px 5px hsla(0, 0%, 0%, 0.2)">text-shadow:  0 2px 5px hsla(0, 0%, 0%, 0.2);
+text-shadow: [horiz] [vert] [blur] [color];</pre> <pre contenteditable>.textshadow { text-shadow: 
+    0 1px #cccccc, 	
+    0 2px #c9c9c9, 
+    0 3px #bbbbbb, 
+    0 4px #b9b9b9, 
+    0 5px #aaaaaa, 
+    0 6px  1px  rgba(0, 0, 0, 0.1), 
+    0 0    5px  rgba(0, 0, 0, 0.1), 
+    0 1px  3px  rgba(0, 0, 0, 0.3), 
+    0 3px  5px  rgba(0, 0, 0, 0.2), 
+    0 5px  10px rgba(0, 0, 0, 0.25), 
+    0 10px 10px rgba(0, 0, 0, 0.2), 
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}</pre>
+ <ul class="icons">
+         <li class="chrome">Chrome</li>
+         <li class="safari">Safari</li>
+         <li class="firefox">Firefox 3.5</li>
+         <li class="opera">Opera 9.5</li>
+         <li class="ie new">IE 10</li>
+     </ul>
+</section>
+</div>
+ 
+<!-- text-shadow Westcit-->    
+<div class="slide object">
+	<object data="http://westciv.com/tools/shadows/"></object>
+  <a href="http://westciv.com/tools/shadows" class="objectlink" target="resource">Visit Site</a>
+  <header><h1>Text-Shadow</h1></header>
+</div>
+
+<!-- MotherEffing -->
+<div class="slide object">
+	<object data="http://mothereffingtextshadow.com/"></object>
+  <a href="http://mothereffingtextshadow.com/" class="objectlink" target="resource">Visit Site</a>
+</div>     
+
+<!-- box-shadow< --> 
+<div class="slide"> 
+<header><h1>box-shadow</h1></header> 
+<section class="content boxshadow"> 
+<b style="float:right; position:relative; top: 20px; right: 20px;"></b><pre contenteditable> 
+box-shadow: 
+	inset 3px 3px 0 3px #C7573A, 
+	inset -3px -3px 0 3px #BDD9D5, 
+	3px 3px 0 3px #BDD9D5, 
+	-3px -3px 0 3px #C7573A;
+box-shadow: 
+    inset? [horiz] [vert] [blur] [spread] [color];
+</pre>
+<ul class="notes">
+<li>Last shadow drawn 'first', under previous shadow</li>
+<li>Should still be -webkit- and -moz- prefixed for best support</li>
+</ul>
+<ul class="icons" style="clear: both;">
+         <li class="chrome">Chrome / Chrome 10</li>
+         <li class="safari">Safari 3 / Safari 5.1</li>
+         <li class="firefox">Firefox 3.5 / Firefox 4.0</li>
+         <li class="opera">Opera 9 / Opera 10.5</li>
+         <li class="ie new"> <br/>IE 9</li>
+     </ul>
+</section>
+</div>   
+
+<!-- box shadow as borders-->
+<div class="slide normal"> 
+     <header><h1>Multiple Borders with Box Shadow</h1></header> 
+     <section class="content">
+     
+     <pre class="borders">.rainbowBorders {
+  box-shadow: 
+    0 0 0 10px red,
+    0 0 0 20px orange,
+    0 0 0 30px yellow,
+    0 0 0 40px green,
+    0 0 0 50px blue,
+    0 0 0 60px purple;
+  }
+     </pre>
+     <a class="objectlink" href="files/72_boxshadow.html">Check it out!</a> 
+     </section>
+ </div>
+ 
+<!-- Text Stroke -->
+<div class="slide object"> 
+<object data="http://westciv.com/tools/textStroke/index.html"></object>
+     <header><h1>Text-Stroke</h1></header>
+     <a href="http://westciv.com/tools/textStroke/index.html" class="objectlink" target="resource">Visit Site</a> 
+ </div>     
+  
+<!-- All CSS Properties -->
+<div class="slide object"> 
+  <object data="http://meiert.com/en/indices/css-properties/"></object>
+  <a href="http://meiert.com/en/indices/css-properties/" class="objectlink" target="resource">Visit Site</a>
+ </div>
+ 
+ <!-- W3C-->
+ <div class="slide normal"> 
+     <header><h1>Specifications</h1></header> 
+     <section class="content"> 
+     <a href="http://www.w3.org/TR/css3-text/" class="objectlink">W3C Text Module</a>
+     
+     <dl class="deprecated appearance">
+
+      <dt><a href="http://www.w3.org/TR/css3-text/#hanging-punctuation0">hanging-punctuation</a></dt>
+      <dd>none | [ first || [ force-end | allow-end ] || last ]</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#hyphens0">hyphens</a></dt>
+      <dd>none | manual | auto</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#letter-spacing0">letter-spacing</a></dt>
+      <dd>&lt;spacing-limit&gt;</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#line-break0">line-break</a></dt>
+      <dd>auto | loose | normal | strict</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#overflow-wrap0">overflow-wrap</a></dt>
+      <dd>normal | break-word</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#tab-size0">tab-size</a></dt>
+      <dd>&lt;integer&gt; | &lt;length&gt;</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-align0">text-align</a></dt>
+      <dd>[ [ start | end | left | right | center ] || &lt;string&gt; ] | justify | match-parent | start end</dd>
+      <dt><a href="https://developer.mozilla.org/en/CSS/text-align-last">text-align-last</a></dt>
+      <dd>auto | start | end | left | right | center | justify</dd>
+      <dt><a href="https://developer.mozilla.org/en/CSS/text-decoration">text-decoration</a></dt>
+      <dd>&lt;text-decoration-line&gt; || &lt;text-decoration-style&gt; || &lt;text-decoration-color&gt; || blink</dd>
+      <dt><a href="https://developer.mozilla.org/en/CSS/text-decoration-color">text-decoration-color</a></dt>
+      <dd>&lt;color&gt;</dd>
+      <dt><a href="https://developer.mozilla.org/en/CSS/text-decoration-line">text-decoration-line</a></dt>
+      <dd>none | [ underline || overline || line-through ]</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-decoration-skip0">text-decoration-skip</a></dt>
+      <dd>none | [ objects || spaces || ink || edges ]</dd>
+      <dt><a href="https://developer.mozilla.org/en/CSS/text-decoration-style">text-decoration-style</a></dt>
+      <dd>solid | double | dotted | dashed | wavy</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-emphasis0">text-emphasis</a></dt>
+      <dd>&lsquo;&lt;text-emphasis-style&gt;&rsquo; || &lsquo;&lt;text-emphasis-color&gt;&rsquo;</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-emphasis-color0">text-emphasis-color</a></dt>
+      <dd>&lt;color&gt;</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-emphasis-position0">text-emphasis-position</a></dt>
+      <dd>[ above | below ] &amp;&amp; [ right | left ]</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-emphasis-style0">text-emphasis-style</a></dt>
+      <dd>none | [ [ filled | open ] || [ dot | circle | double-circle | triangle | sesame ] ] | &lt;string&gt;</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-indent0">text-indent</a></dt>
+      <dd>[ &lt;length&gt; | &lt;percentage&gt; ] &amp;&amp; [ hanging || each-line ]?</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-justify0">text-justify</a></dt>
+      <dd>auto | none | inter-word | inter-ideograph | inter-cluster | distribute | kashida</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-shadow0">text-shadow</a></dt>
+      <dd>none | [ &lt;length&gt;{2,3} &amp;&amp; &lt;color&gt;? ]#</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-space-collapse">text-space-collapse</a></dt>
+      <dd>collapse | preserve | preserve-breaks</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-transform0">text-transform</a></dt>
+      <dd>none | [ [ capitalize | uppercase | lowercase ] || full-width || full-size-kana ]</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-underline-position0">text-underline-position</a></dt>
+      <dd>auto | alphabetic | [ below || [ left | right ] ]</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#text-wrap0">text-wrap</a></dt>
+      <dd>normal | none | avoid</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#white-space0">white-space</a></dt>
+      <dd>normal | pre | nowrap | pre-wrap | pre-line</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#word-break0">word-break</a></dt>
+      <dd>normal | keep-all | break-all</dd>
+      <dt><a href="http://www.w3.org/TR/css3-text/#word-spacing0">word-spacing</a></dt>
+      <dd>&lt;spacing-limit&gt;</dd>
+</dl>
+     </section>
+ </div>
+   
+<!-- Prefixed properties -->   
+<div class="slide  object"> 
+     <object data="http://peter.sh/experiments/vendor-prefixed-css-property-overview/"></object>
+     <a href="http://peter.sh/experiments/vendor-prefixed-css-property-overview/" class="objectlink" target="_new">Visit Site</a>
+ </div>    
+  
+<!-- Next -->
+<div class="slide intro"> 
+     <header><h1>Borders &amp; Backgrounds</h1></header> 
+     <section class="content"> 
+  <h1><a href="part_08_backgrounds.html#slide3">Next ➹</a></h1>
+     </section>
+    </div>
+    
+
+  
+    
+   
+    
+    
+    
+  
+   
+  </div>
+  <script src="images/slide.js"></script>
+  </div></body> 
+</html>
