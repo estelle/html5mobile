@@ -469,13 +469,13 @@ ul.columns {
 }
 .nonspec li {padding-bottom: 0;}
 .specificity .id {
-	background-image:url(../img/shark.gif);
+	background-image:url(shark.gif)
 }
 .specificity .class {
-	background-image:url(../img/fish.png);	
+	background-image:url(fish.png);	
 }
 .specificity .element {
-	background-image:url(../img/plankton.png);	
+	background-image:url(plankton.png);	
 }
 .object header {position:absolute; top: 10px; width: 100%; text-align:center; background-color: rgba(255,255,255,0.9); left:0;}
 .objectlink {position:absolute;top:0; right:0;color: white; background-color: #C7573A; padding: 3px 5px; border: none;}
