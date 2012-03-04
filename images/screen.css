@@ -571,10 +571,10 @@ margin: 0;
 		#semels .divarticle {width: 69%;float: right;}
 		.divfooter {clear:both;}
 		
-form input:focus:invalid { background-color: lightPink;}
-form input:valid { background-color:lightGreen }
-form input:required {border: 2px solid red;}
-form input:optional {border: 2px solid green;}
+form input:focus:invalid:not([type=checkbox]):not([type=submit]) { background-color: lightPink;}
+form input:valid:not([type=checkbox]):not([type=submit]) { background-color:lightGreen }
+form input:required:not([type=checkbox]):not([type=submit]) {border: 2px solid red;}
+form input:optional:not([type=checkbox]):not([type=submit]) {border: 2px solid green;}
 #forminputs ul {width: 45%; float:left; margin:0;}
 #forminputs li {list-style-type: none;}
 
