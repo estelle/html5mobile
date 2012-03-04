@@ -1,14 +1,15 @@
 <!doctype html>
 <html> 
-  <head> 
-    <!--[if gte IE 9]>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <![endif]--> 
-    <!--[if lt IE 9]>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
-    <![endif]--> 
+  <head>  
     <meta charset="utf-8" />
     <title>Backgrounds and Borders: CSS: From Knowledgable to Ninja</title>
+    <!-- 
+
+Author: Estelle Weyl
+Contact: firstName @ lastName dot ORG
+Twitter: @estellevw
+ 
+-->
      <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'> 
    <link rel="stylesheet" href="images/screen.css" media="projection, screen"/>  
    <link rel="stylesheet" href="css/print.css" media="print"/>
@@ -49,7 +50,7 @@
 	float:left;
 	text-align:center;
 }
-#bcksizeexample {
+#bcksizeexample, #bcksizeexample2 {
 	background-repeat:repeat;
 	float: right;
 	box-shadow: inset 5px 5px 5px rgba(0,0,0,0.4),inset -5px -5px 5px rgba(0,0,0,0.4) ;
@@ -58,6 +59,14 @@
 	text-align:center;
 	margin-left: 20px;	
 }
+#bcksizeexample2 {
+	width: 100px;
+	height:200px;
+	background-image:url(images/shark.gif);	
+	background-position: 50%;
+}
+
+
 .borderstyle dt {
 	border: 9px solid #C7573A;	
 	margin-bottom:0; margin-top:0.2em; 
@@ -114,7 +123,7 @@
 } [title="prefix"] {white-space:nowrap; display: block;}
 tr {height: 2em;}
 th {text-align: right; padding-right: 10px;}
- 
+.bgimage2 {}
  </style>   
  
   </head> 
@@ -159,7 +168,7 @@ th {text-align: right; padding-right: 10px;}
     
 
 <div class="slide intro"> 
-     <header><h1>Part 8: Backgrounds and Borders</h1></header> 
+     <header><h1>Backgrounds and Borders</h1></header> 
 </div>
 
 
@@ -466,7 +475,7 @@ background-image: image('ico_sprite.jpg#xywh=32,64,16,16')</pre>
   <dt>round</dt>
   <dd>Repeated as often as will fit without being clipped then scaled so no space in between</dd>
 </dl>
-<pre contenteditable>background-repeat: <b><span id="txt_bgrepeat">no-repeat</span></b>; <select id="cmd_bgrepeat" onChange="fnc_bgrepeat(this);">
+<pre >background-repeat: <b><span id="txt_bgrepeat" contenteditable>no-repeat</span></b>; <select id="cmd_bgrepeat" onChange="fnc_bgrepeat(this);">
 	<option>no-repeat</option>
     <option>repeat</option>
     <option>repeat-x</option>
@@ -527,11 +536,11 @@ Short ribs shoulder turkey tenderloin. Ball tip ham capicola, turkey jowl ribeye
  </div>
  
  <!--background-position -->
-<div class="slide normal bgimage" style="background-position: right 50px bottom 50p;"> 
+<div class="slide normal bgimage" style="background-position: right 50px bottom 50px;"> 
      <header><h1>background-position</h1></header> 
      <section class="content"> 
      <p>New in CSS3: Positioning relative to any corner</p>
-     <pre contenteditable>background-position: right 50px bottom 50p;</pre>
+     <pre contenteditable>background-position: right 50px bottom 50px;</pre>
       </ul> 
         <ul class="icons" style="clear: both;">
          <li class="chrome bad">Chrome</li>
@@ -612,6 +621,24 @@ Short ribs shoulder turkey tenderloin. Ball tip ham capicola, turkey jowl ribeye
 			  var image = document.getElementById('bcksizeexample');
               image.style.backgroundSize = backsize + "px " + backsize + "px, " + backsize + "px " + backsize + "px, 100% 100%"   ;
 			  document.getElementById('actualsize').innerHTML = "<b>"+ backsize +"px " +  backsize +"px</b>;";
+			  
+            }
+	</script>
+</div> 
+ 
+  <!--background-size -->
+<div class="slide" id="bgsize">
+	<header><h1>background-size</h1></header>
+    <section class="content">
+    <pre contenteditable><b><u></u>background-size</b>: <span onClick="changeBackSide2('auto')">auto</span> | <span onClick="changeBackSide2('contain')">contain</span> | <span onClick="changeBackSide2('cover')">cover</span> | <span onClick="changeBackSide2('100px 200px')">100px 200px</span></pre>
+    <div id="bcksizeexample2" class="bgimage2">
+    </div>
+    </section>
+    <script defer>
+    function changeBackSide2(backsize) {
+			 console.log('hit');
+			  var image = document.getElementById('bcksizeexample2');
+              image.style.backgroundSize = backsize;
 			  
             }
 	</script>
@@ -844,7 +871,7 @@ border-bottom-left-radius</pre>
 <b>border-image-repeat</b>: <strong>stretch</strong> | repeat | round {1,2}		
 	
 </pre>	
-<pre contenteditable style="float:right; margin-bottom:40px;">
+<pre style="float:right; margin-bottom:40px;">
 S = <input type="range" id="slice" min="0" max="50" value="34" step="1" onChange="changeBorderImage();">
 W = <input type="range" id="width" min="0" max="50" value="34" step="1" onChange="changeBorderImage();">
 <select id="repeat" onChange="changeBorderImage();"><option value="stretch" selected>stretch</option><option value="repeat">repeat</option><option value="round">round</option></select> </pre> 
