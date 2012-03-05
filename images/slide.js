@@ -527,6 +527,7 @@ var slides = function() {
     handleKeys: function(e) {    if (/^(input|textarea)$/i.test(e.target.nodeName)) return;
       
 
+      if(e.target.contentEditable == "true") return;
       switch (e.keyCode) {
 
         case 37: 
