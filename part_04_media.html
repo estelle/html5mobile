@@ -91,7 +91,8 @@ body, #presentation, #slides {
 <div class="slide normal"> 
  <header><h1>Course Outline</h1></header> 
  <section class="content"> 
-  <ol><li><a href="part_01_selectors.html">Selectors</a></li>
+  <ol>
+    <li><a href="part_01_selectors.html">Selectors</a></li>
     <li><a href="part_02_specificity.html">Specificity</a></li>
     <li><a href="part_03_generated.html">Generated Content</a></li>
     <li><a href="part_04_media.html">Media Queries</a></li>
@@ -102,14 +103,14 @@ body, #presentation, #slides {
     <li><a href="part_09_gradients.html">Gradients</a></li>
     <li><a href="part_10_transforms.html">Transforms</a></li>
     <li><a href="part_11_animation.html">Transitions &amp; Animation</a></li>
-<li><a href="part_12_features.html">Other Features</a></li>
+	<li><a href="part_12_features.html">Other Features</a></li>
 </ol>
  </section>
 </div>
 
 <!-- section title -->
 <div class="slide intro"> 
-     <header><h1>Part 5:<br>Media Queries</h1></header> 
+     <header><h1>Media Queries</h1></header> 
      <section class="content"></section>
 </div>
  
@@ -291,6 +292,100 @@ overflow:hidden; ">
      </object> 
 </div> 
  
+
+<div class="slide normal"> 
+     <header><h1>Portrait v. Landscape</h1></header> 
+     <section class="content">
+     <p>Forcing portrait mode</p>
+<pre>@media only screen and (max-device-width: 480px) and (orientation: landscape){
+    #containerDiv{
+       -webkit-transform:rotate(-90deg);
+       -webkit-transform-origin: 160px 160px;
+       }
+    }</pre>
+<p>Forcing Landscape Mode</p>
+<pre>@media only screen and (max-device-width: 480px) and (orientation: portrait){
+    #containerDiv{
+       -webkit-transform:rotate(90deg) scale(1.45);
+       -webkit-transform-origin: 230px 230px;
+       }
+    }</pre>   
+     </section>
+ </div>
+ 
+ 
+ <div class="slide normal"> 
+     <header><h1>JS Orientation Detection</h1></header> 
+     <section class="content">
+     <pre>switch(window.orientation){
+   case 0:
+       //handle portrait actions
+       //document.getElementsByTagName('body')[0].className = 'portrait';
+       break;
+  case -90:
+  case 90:
+       // handle landscape actions
+       //document.getElementsByTagName('body')[0].className = 'landscape';
+       break;
+} //end switch</pre>
+<p>Event</p>
+<pre>onOrientationChange</pre> 
+     </section>
+     </div>
+ 
+ 
+ <div class="slide normal"> 
+     <header><h1> Mobile Look Features</h1></header> 
+     <section class="content">
+     <p>Home Screen Icons</p>
+     <pre>&lt;link rel="apple-touch-icon" href="icon.png" sizes="114x114"/>
+&lt;link rel="apple-touch-icon-precomposed" href="roundicon.png" /></pre>
+     <p>Status Bar Color</p>
+     <pre>&lt;meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
+(default | black | black-translucent)</pre>
+    <p>Start-up Image</p>
+    <pre>&lt;link rel="apple-touch-startup-image" href="fullscreen.jpg"/></pre>
+    
+     </section>
+ </div>
+
+
+<div class="slide normal"> 
+     <header><h1>Viewport Meta Tags</h1></header> 
+     <section class="content"> 
+<ul>
+<li>width</li>
+<li>height</li>
+<li>initial-scale</li>
+<li>user-scalable</li>
+<li>minimum-scale</li>
+<li>maximum-scale</li>
+</ul><p>Targeting the PhoneViewport:</p>
+<pre>&lt;meta name="viewport" content="width=device-width"/>
+&lt;meta name="viewport" content="user-scalable=no, width=device-width"/
+&lt;meta name="viewport" 
+  content="width=device-width, minimum-scale=1.0, 
+  maximum-scale=1.0" /></pre>
+<p>Last one prevents zoom/scale</p>
+     </section>
+ </div>
+ 
+ 
+<div class="slide normal"> 
+     <header><h1>etc.</h1></header> 
+     <section class="content"> 
+     <p>Hiding the iPhone toolbar</p>
+     <pre>window.scrollTo(0, 1);</pre>
+     <p>To go full screen</p>
+    <pre>&lt;meta name="apple-mobile-web-app-capable" content="yes"></pre>
+    <p>:hover</p>
+    <pre>-webkit-tap-highlight-color: </pre>
+     </section>
+ </div>
+
+
+
 
 <div class="slide intro"> 
 	<header><h1>Debugging</h1></header> 
