@@ -78,15 +78,15 @@
 <div class="slide normal">
 <section class="content" style="margin-top:-10px">
 <p>Create a worker</p>
-<pre>var workerName = new Worker('javascriptFile.js');</pre> 
+<pre contenteditable>var workerName = new Worker('javascriptFile.js');</pre> 
 <p>Communicate with worker</p>
-<pre>workerName.postMessage(message_for_worker);</pre>
+<pre contenteditable>workerName.postMessage(message_for_worker);</pre>
 <p>Listen to worker</p>
-<pre>self.onmessage = function (event) { 
+<pre contenteditable>self.onmessage = function (event) { 
 	var theMessage = event.data;
 }</pre>
 <p>Error Handling</p>
-<pre>self.onerror = function(error){
+<pre contenteditable>self.onerror = function(error){
 	var caller = error.filename;
 	var errorLineNumber = error.lineno;
     var errorMsg = error.message;
@@ -239,12 +239,12 @@ Chrome with the --allow-file-access-from-files ﬂag</p></div>
      <header><h1>CORS Headers (examples)</h1></header> 
      <section class="content">
 <p>Request Headers</p>
-<pre>Origin: http://requestingdomain.com
+<pre contenteditable>Origin: http://requestingdomain.com
 Access-Control-Request-Headers: <strong>PASSPHRASE</strong>
 Access-Control-Request-Method:POST
 </pre>
 <p>Response Headers</p>    
-<pre>Access-Control-Allow-Origin: * # or domain
+<pre contenteditable>Access-Control-Allow-Origin: * # or domain
 Access-Control-Allow-Methods:POST, GET, OPTIONS
 Access-Control-Allow-Headers: <strong>PASSPHRASE</strong>
 Access-Control-Max-Age: 86400</section>
@@ -254,7 +254,7 @@ Access-Control-Max-Age: 86400</section>
      <header><h1>GET or POST simple request</h1></header> 
      <section class="content">
 <p>CORS feature detection <code>withCredentials</code> Property</p>
-<pre>if (XMLHttpRequest) {
+<pre contenteditable>if (XMLHttpRequest) {
     var request = new XMLHttpRequest();
     var url = http://otherserver.com/resource;
     
@@ -277,7 +277,7 @@ Access-Control-Max-Age: 86400</section>
      <header><h1>Credentialed Requests</h1></header> 
      <section class="content">
 <p>Similar, but sends http cookie header with request (not the default)</p>
-     <pre>if (XMLHttpRequest) {
+     <pre contenteditable>if (XMLHttpRequest) {
     var request = new XMLHttpRequest();
     var url = http://otherserver.com/resource;
     
@@ -355,7 +355,7 @@ function handleEvent(evtXHR) {
 <div class="slide normal">
 <header><h1>Cross-document Messaging</h1></header>
 <section class="content">
-<pre>otherWindow.postMessage(message, targetOrigin);</pre>
+<pre contenteditable>otherWindow.postMessage(message, targetOrigin);</pre>
 <dl>
 <dt>otherWindow</dt>
 <dd>reference to other window via iframe contentWindow property, window.open return object or index value of window.frames</dd>
@@ -379,7 +379,7 @@ function handleEvent(evtXHR) {
 <div class="slide normal"> 
      <header><h1>otherWindow snippet</h1></header> 
      <section class="content"> 
-     <pre>window.addEventListener("message", handleMessage, false);  
+     <pre contenteditable>window.addEventListener("message", handleMessage, false);  
   
 function handleMessage(event) {  
   if (event.<strong>origin</strong> !== "http://messageOriginator.com")  
@@ -466,7 +466,7 @@ AVOID MALICIOUS CODE</h1>
 <div class="slide normal">
 <header><h1>Serer / Client Handshake</h1></header>
 <section class="content">
-<pre>GET /chat HTTP/1.1
+<pre contenteditable>GET /chat HTTP/1.1
 Connection: Upgrade 
 Host: example.com
 Origin: http://example.com 
@@ -475,7 +475,7 @@ Sec-WebSocket-Key2: 30]8N763$84 12><span style="color:red">*</span>
 Upgrade: WebSocket 
 64:6E:AC:0C:FD:90:8A:51<span style="color:red">*</span>   <span style="color:red">*</span>(Random tokens for 16 byte token)</pre>
 
-<pre>HTTP/1.1 101 WebSocket Protocol Handshake
+<pre contenteditable>HTTP/1.1 101 WebSocket Protocol Handshake
 Upgrade: WebSocket
 Connection: Upgrade
 Sec-WebSocket-Origin: http://example.com
@@ -489,7 +489,7 @@ Sec-WebSocket-Location: ws://example.com/chat
 <div class="slide normal">
 <header><h1>Web Socket API Features</h1></header>
 <section class="content">
-<pre>
+<pre contenteditable>
 // ready state
 CONNECTING = 0
 OPEN = 1
@@ -513,9 +513,9 @@ close()</pre>
 <header><h1>Methods</h1></header>
 <section class="content"> 
 <p>Create Socket</p>
-<pre>var socket=new WebSocket("ws://127.0.0.1:8080/")</pre>
+<pre contenteditable>var socket=new WebSocket("ws://127.0.0.1:8080/")</pre>
 <p>Event Listeners</p>
-<pre>socket.onopen = function(){
+<pre contenteditable>socket.onopen = function(){
   console.log("Connection to the socket is now open");
 }
 socket.onmessage = function(e){
@@ -525,7 +525,7 @@ socket.onclose = function(e){
   console.log("Connection to the socket is closed");
 }</pre> 
 <p>Send Message</p>
-<pre>socket.send("This is the message sent by the client")</pre> 
+<pre contenteditable>socket.send("This is the message sent by the client")</pre> 
 </section>
 </div>
 

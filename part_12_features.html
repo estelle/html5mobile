@@ -581,7 +581,28 @@ small {
     </section>
 </div>
      
- 
+ <div class="slide normal"> 
+     <header><h1>Masking</h1></header> 
+     <section class="content"><ul>
+     <ul><li>complex shapes based off  alpha of an image.</li>
+     <li>Overlay box with  pattern</li>
+     <li>knock out portions of  box in  final display.</li></ul>
+<pre contenteditable>div {
+  background-image:url(images/frame.jpg);
+  -webkit-mask: url(images/framemask.png); 
+}</pre> 
+<ul>
+    <li>-webkit-mask (SHORTHAND)</li>
+    <li>-webkit-mask-attachment (background-attachment)</li>
+    <li>-webkit-mask-clip (background-clip)</li>
+    <li>-webkit-mask-origin (background-origin)</li>
+    <li>-webkit-mask-image (background-image)</li>
+    <li>-webkit-mask-repeat (background-repeat)</li>
+    <li>-webkit-mask-composite (background-composite)</li>
+    <li>-webkit-mask-box-image (border-image)</li>
+</ul>
+     </section>
+ </div>
  
  
  
@@ -613,7 +634,7 @@ small {
      <section class="content">
 <p>Related to <em>contentEditable</em>: Determines whether content of an element is editable.</p>
 
-<pre>
+<pre contenteditable>
 -webkit-user-modify: read-only | read-write | read-write-plaintext-only;
 -moz-user-modify: read-only | read-write | write-only;</pre>
 <dl>

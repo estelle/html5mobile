@@ -91,7 +91,7 @@ dosomething.cgi</pre>
      <div style="height:550px; overflow: scroll">
      <p><br />
 In this lab, we are going to build a manifest ﬁle for our web application and we are going to see a live example of ofﬂine caching For the purpose of this lab, we are going to use the python module SimpleHTTPServer as a web server but ﬁrst, we will need to deﬁne the MIME type for the manifest ﬁle. Edit mimetypes.py and look for the section deﬁning MIME types. Add the MIME type for .manifest ﬁles after '.man' : 'application/x-troff-man', like this:</p>
-<pre>types_map = {
+<pre contenteditable>types_map = {
 
 # Mimetypes
 '.man' : 'application/x-troff-man',
@@ -112,7 +112,7 @@ In this lab, we are going to build a manifest ﬁle for our web application and 
   <li> Two images: One that is going to be cached light_bulb_off.jpg (displayed in fallback.html) and another one that is going to be accessible only from the network light_bulb_on.jpg (displayed in network.html).</li>
 </ul>
 <p>2. We now want to create a manifest ﬁle specifying which resources need to be cached and what is the fallback page in case users try to access a resources which is not cached. In the same folder of the application, create offline.manifest:</p>
-<pre>CACHE MANIFEST
+<pre contenteditable>CACHE MANIFEST
 # Version 1.0.0 
 
 CACHE: 
@@ -128,12 +128,12 @@ FALLBACK:
 / fallback.html</pre>
 
 <p>3. We then need to link this manifest ﬁle to the index.html page:</p>
-<pre>&lt;!DOCTYPE html&gt;
+<pre contenteditable>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot; manifest=&quot;offline.manifest&quot;&gt; 
 &lt;!-- Rest of the file not showed here --&gt;
 </pre>
 <p>4. So far we could use our application as it is but before we would like to have details on which events have been ﬁred so we exactly know what is going on. In index.html, add the following between the &lt;script&gt; tag:</p>
-<pre>function networkStatus() {
+<pre contenteditable>function networkStatus() {
     if (navigator.onLine) {
     	document.getElementById(&quot;status&quot;).innerHTML=&quot;ONLINE&quot;;
     } else {
@@ -180,10 +180,10 @@ window.addEventListener(&quot;<strong>offline</strong>&quot;, function(e) {
 window.addEventListener(&quot;<strong>load</strong>&quot;, networkStatus, true);</pre>
 <p>5. Time to see your application working. In a terminal or command prompt, browse to your labs folder in the
 offline_application and run the following command:</p>
-<pre>python -m SimpleHTTPServer</pre>
+<pre contenteditable>python -m SimpleHTTPServer</pre>
 <p>6. Then open ﬁrefox and browse to: http://localhost:8000 (or any other port where the web server is listening on). So far, if it worked well, ﬁrefox should ask you to store data on your computer for ofﬂine use:</p>
 <p>7. Click on &quot;Allow&quot; and then you should see the following being displayed: </p>
-<pre>ONLINE
+<pre contenteditable>ONLINE
 checking event: Checking is always the first event to be fired
 downloading event: Update found. Downloading has started
 progress event: Downloading resources...
@@ -200,14 +200,14 @@ cached event: Application cached</pre>
 <p>13. Switch to ofﬂine mode again. In ﬁrefox, click on File!Work Ofﬂine</p>
 <p>14. Visit the &quot;Network Page&quot; again and now instead of getting the fallback page, you get the browser cache (do not confuse this with the application cache) since you already visited the page while online.</p>
 <p>15. Let us change the header of our web application to something a little bit fancier. Change:</p>
-<pre>&lt;header&gt;
+<pre contenteditable>&lt;header&gt;
 &lt;hgroup&gt;
 &lt;h1&gt;The HTML5 Blog&lt;/h1&gt;
 &lt;h2&gt;All HTML5 News :)&lt;/h2&gt;
 &lt;/hgroup&gt;
 &lt;/header&gt;</pre>
 <p>By the following:</p>
-<pre>&lt;header&gt;
+<pre contenteditable>&lt;header&gt;
 &lt;hgroup&gt;
 &lt;h1&gt;The kick-ass HTML5 Blog&lt;/h1&gt;
 &lt;h2&gt;kick-ass since it is now an offline blog as well :)&lt;/h2&gt;
@@ -219,7 +219,7 @@ cached event: Application cached</pre>
 <p>manifest with a simple comment (like modifying the version number for instance), save it and click again on the</p>
 <p>&quot;Home&quot; link</p>
 <p>19. The information displayed in the index.html page are the following:</p>
-<pre>ONLINE
+<pre contenteditable>ONLINE
 checking event: Checking is always the first event to be fired
 downloading event: Update found. Downloading has started 
 progress event: Downloading resources...

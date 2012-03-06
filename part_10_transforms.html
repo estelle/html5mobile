@@ -143,7 +143,7 @@ section {padding-top: 20px;}
 <div class="slide normal"> 
      <header><h1>Tranforming Elements</h1></header>
      <section class="content"><b class="plane plane_01">✈</b> 
-     <pre>.plane {
+     <pre contenteditable>.plane {
 -webkit-transform: 
  translate(-90px,300px) rotate(50deg) scale(.7,.9) skew(5deg); 
 -moz-transform: 
@@ -155,7 +155,7 @@ section {padding-top: 20px;}
 transform: 
  translate(-90px,300px) rotate(50deg) scale(.7,.9) skew(5deg);     
 }</pre>
-<pre>selector {
+<pre contenteditable>selector {
 	transform: none | &lt;transFunc()&gt; [&lt;transFunc()&gt;];
 }</pre>
      </section>
@@ -195,9 +195,9 @@ transform:
      <header><h1>Transform Function: Translate</h1></header>
      <b class="plane plane_02">✈</b> 
      <section class="content">
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_02', this.innerHTML)">translate(100px, 100px)</span>;</pre> 
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_02', this.innerHTML)">translateX(100px)</span>;</pre>  
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_02', this.innerHTML)">translateY(100px)</span>;</pre> 
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_02', this.innerHTML)">translate(100px, 100px)</span>;</pre> 
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_02', this.innerHTML)">translateX(100px)</span>;</pre>  
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_02', this.innerHTML)">translateY(100px)</span>;</pre> 
      
      </section>
  </div>
@@ -206,7 +206,7 @@ transform:
      <header><h1>Transform Function: Rotate</h1></header> 
      <section class="content"> <b class="plane plane_03">✈</b> 
     
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_03', this.innerHTML)">rotate(90deg)</span>;</pre> 
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_03', this.innerHTML)">rotate(90deg)</span>;</pre> 
      
      </section>
  </div>
@@ -215,9 +215,9 @@ transform:
      <header><h1>Transform Function: Scale</h1></header> 
      <section class="content"><b class="plane plane_04">✈</b> 
     
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_04', this.innerHTML)">scale(0.25, 0.75)</span>;</pre>
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_04', this.innerHTML)">scale(0.75)</span>;</pre> <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_04', this.innerHTML)">scaleX(0.25)</span>;</pre> 
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_04', this.innerHTML)">scaleY(0.75)</span>;</pre>  
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_04', this.innerHTML)">scale(0.25, 0.75)</span>;</pre>
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_04', this.innerHTML)">scale(0.75)</span>;</pre> <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_04', this.innerHTML)">scaleX(0.25)</span>;</pre> 
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_04', this.innerHTML)">scaleY(0.75)</span>;</pre>  
      </section>
  </div>
  
@@ -227,8 +227,8 @@ transform:
      <section class="content">
      <b class="plane plane_05">✈</b> 
     
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_05', this.innerHTML)">skewX(5deg)</span>;</pre>
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_05', this.innerHTML)">skewY(5deg)</span>;</pre> <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_05', this.innerHTML)">skewX(5deg) skewY(5deg)</span>;</pre> <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_05', this.innerHTML)">skew(5deg,5deg)</span>;</pre> 
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_05', this.innerHTML)">skewX(5deg)</span>;</pre>
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_05', this.innerHTML)">skewY(5deg)</span>;</pre> <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_05', this.innerHTML)">skewX(5deg) skewY(5deg)</span>;</pre> <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_05', this.innerHTML)">skew(5deg,5deg)</span>;</pre> 
    
      </section>
  </div>
@@ -243,7 +243,7 @@ transform:
 <li><b class="y">rotate</b> <pre class="x">transform: <span contenteditable id="Arotate">rotate(15deg);</span></pre></li>
 <li><b class="y">scale</b> <pre class="x">transform: <span contenteditable id="Ascale">scale(1.5, 2);</span></pre></li>
 <li><b class="y">skew</b> <pre class="x">transform: <span contenteditable id="Askew">skewX(-8deg);</span></pre></li>
-<li>multiple transforms <pre>transform: <span contenteditable id="Btranslate">translate(-80px, 200px)</span> 
+<li>multiple transforms <pre contenteditable>transform: <span contenteditable id="Btranslate">translate(-80px, 200px)</span> 
   <span contenteditable id="Brotate">rotate(-15deg)</span> <span contenteditable id="Bscale">scale(2, 1.5)</span> <span contenteditable id="Bskew">skewX(8deg)</span>;</pre></li>
 </ul>
 </section>
@@ -336,7 +336,7 @@ transform:
      <header><h1>Transform Function: Perspective</h1></header>
      <b class="plane plane_07">✈</b> 
      <section class="content">
-     <pre>transform: <span contenteditable onKeyUp="setTempStyle('plane_07', this.innerHTML)">translate3d(0px, 0px, 0px) perspective(0)</span>;</pre> 
+     <pre contenteditable>transform: <span contenteditable onKeyUp="setTempStyle('plane_07', this.innerHTML)">translate3d(0px, 0px, 0px) perspective(0)</span>;</pre> 
      </section>
  </div>
  
