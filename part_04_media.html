@@ -285,11 +285,9 @@ media="print<b>,</b> screen and (min-width: 480px)"</pre>
   </div> 
   
 <!-- mediaqueri.es -->
- <div class="slide" style="padding:0; overflow:hidden;"> 
-<object data="http://mediaqueri.es/" style="height: 780px;
-width: 940px;
-overflow:hidden; "> 
-     </object> 
+ <div class="slide object"> 
+<object data="http://mediaqueri.es/"> 
+     </object><a href="http://mediaqueri.es/" class="objectlink">MediaQueri.es</a> 
 </div> 
  
 
@@ -304,7 +302,7 @@ overflow:hidden; ">
        }
     }</pre>
 <p>Forcing Landscape Mode</p>
-<pre>@media only screen and (max-device-width: 480px) and (orientation: portrait){
+<pre contenteditable>@media only screen and (max-device-width: 480px) and (orientation: portrait){
     #containerDiv{
        -webkit-transform:rotate(90deg) scale(1.45);
        -webkit-transform-origin: 230px 230px;
@@ -317,7 +315,7 @@ overflow:hidden; ">
  <div class="slide normal"> 
      <header><h1>JS Orientation Detection</h1></header> 
      <section class="content">
-     <pre>switch(window.orientation){
+     <pre contenteditable>switch(window.orientation){
    case 0:
        //handle portrait actions
        //document.getElementsByTagName('body')[0].className = 'portrait';
@@ -329,7 +327,7 @@ overflow:hidden; ">
        break;
 } //end switch</pre>
 <p>Event</p>
-<pre>onOrientationChange</pre> 
+<pre contenteditable>onOrientationChange</pre> 
      </section>
      </div>
  
@@ -338,14 +336,14 @@ overflow:hidden; ">
      <header><h1> Mobile Look Features</h1></header> 
      <section class="content">
      <p>Home Screen Icons</p>
-     <pre>&lt;link rel="apple-touch-icon" href="icon.png" sizes="114x114"/>
+     <pre contenteditable>&lt;link rel="apple-touch-icon" href="icon.png" sizes="114x114"/>
 &lt;link rel="apple-touch-icon-precomposed" href="roundicon.png" /></pre>
      <p>Status Bar Color</p>
-     <pre>&lt;meta name="apple-mobile-web-app-status-bar-style"
+     <pre contenteditable>&lt;meta name="apple-mobile-web-app-status-bar-style"
       content="black-translucent">
 (default | black | black-translucent)</pre>
     <p>Start-up Image</p>
-    <pre>&lt;link rel="apple-touch-startup-image" href="fullscreen.jpg"/></pre>
+    <pre contenteditable>&lt;link rel="apple-touch-startup-image" href="fullscreen.jpg"/></pre>
     
      </section>
  </div>
@@ -362,7 +360,7 @@ overflow:hidden; ">
 <li>minimum-scale</li>
 <li>maximum-scale</li>
 </ul><p>Targeting the PhoneViewport:</p>
-<pre>&lt;meta name="viewport" content="width=device-width"/>
+<pre contenteditable>&lt;meta name="viewport" content="width=device-width"/>
 &lt;meta name="viewport" content="user-scalable=no, width=device-width"/
 &lt;meta name="viewport" 
   content="width=device-width, minimum-scale=1.0, 
@@ -376,11 +374,11 @@ overflow:hidden; ">
      <header><h1>etc.</h1></header> 
      <section class="content"> 
      <p>Hiding the iPhone toolbar</p>
-     <pre>window.scrollTo(0, 1);</pre>
+     <pre contenteditable>window.scrollTo(0, 1);</pre>
      <p>To go full screen</p>
-    <pre>&lt;meta name="apple-mobile-web-app-capable" content="yes"></pre>
+    <pre contenteditable>&lt;meta name="apple-mobile-web-app-capable" content="yes"></pre>
     <p>:hover</p>
-    <pre>-webkit-tap-highlight-color: </pre>
+    <pre contenteditable>-webkit-tap-highlight-color: </pre>
      </section>
  </div>
 
