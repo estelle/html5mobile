@@ -679,6 +679,105 @@ window.history.<b>forward()</b> <span class="notes">/* Goes forward one step &De
   </section>
 </div> 
   
+<div class="slide normal"> 
+<header><h1>FullScreen API</h1></header> 
+<section class="content"> 
+<pre contenteditable>var goFullScreen = function(){
+    var doc = document.documentElement;
+    if (doc.requestFullscreen) {
+        doc.requestFullscreen();
+    }
+    else if (docElm.mozRequestFullScreen) {
+        doc.mozRequestFullScreen();
+    }
+    else if (docElm.webkitRequestFullScreen) {
+        doc.webkitRequestFullScreen();
+    }
+}
+var exitFullScreen = function(){
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    }
+    else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    }
+    else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+    } <button onclick="toggleFullScreen(); return false">Toggle Screen</button>
+}</pre>
+</section>
+<script defer>
+var toggleFullScreen = function(){
+	if(getFullScreenState()){
+		exitFullScreen();
+	} else {
+		goFullScreen();	
+	}
+}
+var getFullScreenState = function(){
+	if(document.exitFullscreen)  		return (document.fullscreen) ? true : false;
+	if (document.mozCancelFullScreen) 	return (document.mozFullScreen) ? true : false;
+	if (document.webkitCancelFullScreen) return (document.webkitIsFullScreen) ? true : false;
+}
+var goFullScreen = function(){
+    var doc = document.documentElement;
+    if (doc.requestFullscreen) {
+        doc.requestFullscreen();
+    }
+    else if (doc.mozRequestFullScreen) {
+        doc.mozRequestFullScreen();
+    }
+    else if (doc.webkitRequestFullScreen) {
+        doc.webkitRequestFullScreen();
+    }
+}
+var exitFullScreen = function(){
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    }
+    else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    }
+    else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+    }
+}
+</script>
+</div> 
+ 
+ <div class="slide normal"> 
+<header><h1></h1></header> 
+<section class="content"> 
+<pre contenteditable>var <strong>getFullScreenState</strong> = function(){
+	if(document.exitFullscreen) {
+    	return (document.<strong>fullscreen</strong>) ? true : false;
+    }
+	if (document.mozCancelFullScreen) { 
+    	return (document.<strong>mozFullScreen</strong>) ? true : false;
+    }
+	if (document.webkitCancelFullScreen) {
+    	return (document.<strong>webkitIsFullScreen</strong>) ? true : false;
+    }
+}</pre>
+<pre contenteditable>document.addEventListener("fullscreenchange"...
+document.addEventListener("mozfullscreenchange"...
+document.addEventListener("webkitfullscreenchange"...
+</pre>
+<pre contenteditable>:fullscreen &amp; :fullscreen-ancestor</pre>
+<ul class="icons" style="clear: both;">
+         <li class="chrome new">Chrome</li>
+         <li class="safari new">Safari</li>
+         <li class="firefox new">Firefox 10 </li>
+         <li class="opera bad">Opera 11.1</li>
+         <li class="ie bad">IE 10</li>
+         <li class="txt">mobile: only Android 4+ (partial)</li>
+     </ul>
+</section>
+
+</div> 
+ 
+  
+ 
 
 
      <div class="slide">
@@ -699,7 +798,7 @@ window.history.<b>forward()</b> <span class="notes">/* Goes forward one step &De
          <li class="firefox">Firefox 3.6 </li>
          <li class="opera">Opera 11.1</li>
          <li class="ie new">IE 10</li>
-         <li class="txt">mobile: only Android</li>
+         <li class="txt">mobile: Android, BB 2+(partial), FF 11</li>
      </ul>
         <p>Tutorial: <a href="http://www.htmlfivewow.com/">Talk from Google I/O</a></p>
       </section>
