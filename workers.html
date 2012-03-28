@@ -1,15 +1,13 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>JS APIs</title>
-
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel="stylesheet"> 
 <link rel="stylesheet" href="images/screen.css" media="projection, screen"/> 
 </head>
-<body>
 
+<body>
 <header>
     <nav>
         <ul>
@@ -25,12 +23,15 @@
 <div id="slides">
 <!-- PRESENTATION -->
 
+<!-- Intro HTML5 Web Workers -->
 <div class="slide intro">
 <header><h1>HTML5 Web Workers</h1></header>
 <section class="content"> 
 </section>
 </div>
 
+
+<!-- Why Web Workers -->
 <div class="slide normal">
 <header><h1>Why Web Workers</h1></header>
 <section class="content">
@@ -50,6 +51,7 @@
 </section>
 </div>
 
+<!-- Introduction To Web Workers -->
 <div class="slide normal">
 <header><h1>Introduction To Web Workers</h1></header>
 <section class="content"> 
@@ -69,12 +71,12 @@
      <li class="firefox">Firefox 3.5 </li>
      <li class="opera ">Opera 10.6</li>
      <li class="ie new">IE 10</li>
-     <li class="txt">Not on android or opera mini</li>
+     <li class="txt">iOS5+, BB6+, MeeGoN9, OpMob. Not on android or opera mini</li>
  </ul>
 </section>
 </div>
 
-
+<!-- create a web worker -->
 <div class="slide normal">
 <section class="content" style="margin-top:-10px">
 <p>Create a worker</p>
@@ -94,7 +96,7 @@
 </section>
 </div>
 
-
+<!-- web worker code lab -->
 <div class="slide normal"> 
      <header><h1>Web Workers: Code Lab</h1></header> 
      <section class="content"><div style="height: 550px; overflow:scroll">
@@ -147,22 +149,15 @@ Chrome with the --allow-file-access-from-files ﬂag</p></div>
      </section>
  </div>
 
-
-
-
-
-
-
-
+<!-- Intro HTML5 Messaging APIs -->
 <div class="slide intro">
 <header><h1>HTML5 Messaging APIs</h1></header>
 <section class="content"> 
 </section>
 </div>
-
  
- 
- <div class="slide normal"> 
+<!-- Same Origin Policy: Security -->
+<div class="slide normal"> 
      <header><h1>Same Origin Policy: Security</h1></header> 
      <section class="content">
      <table>
@@ -203,8 +198,7 @@ Chrome with the --allow-file-access-from-files ﬂag</p></div>
      </section>
  </div>
  
- 
-
+<!-- intro CORS -->
 <div class="slide intro"> 
      <header><h1>CORS: <br/>
      Cross-Origin Resource Sharing</h1></header> 
@@ -212,8 +206,8 @@ Chrome with the --allow-file-access-from-files ﬂag</p></div>
      </section>
  </div>
  
-  
- <div class="slide normal"> 
+<!--  CORS -->
+<div class="slide normal"> 
      <header><h1>CORS</h1></header> 
      <section class="content"> 
      	<p>Cross-Origin Resource Sharing</p>
@@ -228,16 +222,16 @@ Chrome with the --allow-file-access-from-files ﬂag</p></div>
          <li class="firefox">Firefox 3.5 </li>
          <li class="opera new">Opera 12</li>
          <li class="ie new">IE 8 / 10</li>
-         <li class="txt">Not opera mini</li>
+         <li class="txt">Not opera mini, BB, HP✆, OperaMini, Win✆</li>
  	 </ul>
      
      </section>
  </div>
  
- 
- <div class="slide normal"> 
-     <header><h1>CORS Headers (examples)</h1></header> 
-     <section class="content">
+<!-- CORS headers --> 
+<div class="slide normal"> 
+<header><h1>CORS Headers (examples)</h1></header> 
+<section class="content">
 <p>Request Headers</p>
 <pre contenteditable>Origin: http://requestingdomain.com
 Access-Control-Request-Headers: <strong>PASSPHRASE</strong>
@@ -247,35 +241,38 @@ Access-Control-Request-Method:POST
 <pre contenteditable>Access-Control-Allow-Origin: * # or domain
 Access-Control-Allow-Methods:POST, GET, OPTIONS
 Access-Control-Allow-Headers: <strong>PASSPHRASE</strong>
-Access-Control-Max-Age: 86400</section>
- </div>
- 
+Access-Control-Max-Age: 86400
+</pre>
+</section>
+</div>
+
+<!-- CORS GET POST -->  
 <div class="slide normal"> 
-     <header><h1>GET or POST simple request</h1></header> 
-     <section class="content">
+ <header><h1>GET or POST simple request</h1></header> 
+ <section class="content">
 <p>CORS feature detection <code>withCredentials</code> Property</p>
 <pre contenteditable>if (XMLHttpRequest) {
-    var request = new XMLHttpRequest();
-    var url = http://otherserver.com/resource;
+var request = new XMLHttpRequest();
+var url = http://otherserver.com/resource;
+
+// FEATURE DETECTION
+if (request.withCredentials !== undefined) {
+
     
-    // FEATURE DETECTION
-    if (request.withCredentials !== undefined) {
-    
-    	
-      	request.open('GET', url, true);
-   		request.onreadystatechange = handleEvent;
-   		request.send();
-    }
+    request.open('GET', url, true);
+    request.onreadystatechange = handleEvent;
+    request.send();
+}
 }</pre> 
 <p><a href="http://arunranga.com/examples/access-control/simpleXSInvocation.html" target="play">Read the http headers </a></p>
-     </section>
- </div>
+ </section>
+</div>
  
  
- 
- <div class="slide normal"> 
-     <header><h1>Credentialed Requests</h1></header> 
-     <section class="content">
+<!-- CORS Credentialed Requests -->  
+<div class="slide normal"> 
+<header><h1>Credentialed Requests</h1></header> 
+<section class="content">
 <p>Similar, but sends http cookie header with request (not the default)</p>
      <pre contenteditable>if (XMLHttpRequest) {
     var request = new XMLHttpRequest();
@@ -294,7 +291,7 @@ Access-Control-Max-Age: 86400</section>
  </div>
  
  
- 
+<!-- CORS Preflight request --> 
  <div class="slide normal"> 
      <header><h1>Preflighted Request</h1></header> 
      <section class="content">
@@ -309,7 +306,8 @@ Access-Control-Max-Age: 86400</section>
      </section>
  </div>
  
- <div class="slide normal"> 
+<!-- CORS code example -->
+<div class="slide normal"> 
      <section class="content" style="margin:0;padding: 0">
 <pre style="position: relative; top:-30px;">var request = new XMLHttpRequest();
 var url = 'http://otherdomain.com/file';
@@ -342,16 +340,17 @@ function handleEvent(evtXHR) {
  </div>
  
  
- 
+<!-- CODE LAB FILES -->
 <div class="slide intro"> 
-     <header><h1>Cross-document Messaging</h1></header> 
-     <section class="content">
-     <p><a href="https://github.com/estelle/html5training/tree/master/html5_labs/messaging">Code Lab Files</a> </p>
-     </section>
- </div>
+<header><h1>Cross-document Messaging</h1></header> 
+<section class="content">
+<p><a href="https://github.com/estelle/html5training/tree/master/html5_labs/messaging">Code Lab Files</a> </p>
+</section>
+</div>
  
 
 
+<!-- Cross-document Messaging -->
 <div class="slide normal">
 <header><h1>Cross-document Messaging</h1></header>
 <section class="content">
@@ -376,6 +375,7 @@ function handleEvent(evtXHR) {
 </section>
 </div>
 
+<!-- Cross-document Messaging 2nd window -->
 <div class="slide normal"> 
      <header><h1>otherWindow snippet</h1></header> 
      <section class="content"> 
@@ -400,6 +400,8 @@ function handleMessage(event) {
 </dl>
      </section>
  </div>
+ 
+<!-- Security --> 
 <div class="slide normal"> 
      <header><h1>Security<br>
 &nbsp;</h1></header> 
@@ -411,7 +413,7 @@ AVOID MALICIOUS CODE</h1>
      </section>
  </div>
 
-
+<!-- Intro HTML5 Web Sockets -->
 <div class="slide intro">
 <header><h1>HTML5 Web Sockets</h1></header>
 <section class="content"> 
@@ -419,6 +421,7 @@ AVOID MALICIOUS CODE</h1>
 </section>
 </div>
 
+<!-- Previous Web Communication Options -->
 <div class="slide normal">
 <header><h1>Previous Web Communication Options</h1></header>
 <section class="content"> 
@@ -430,6 +433,7 @@ AVOID MALICIOUS CODE</h1>
 </section>
 </div>
 
+<!-- Web Sockets -->
 <div class="slide normal">
 <header><h1>Web Sockets</h1></header>
 <section class="content"> 
@@ -458,13 +462,14 @@ AVOID MALICIOUS CODE</h1>
          <li class="ie new">IE 10<br>
 <br>
 </li>
-         <li class="txt">Old syntax supported iOS &amp; OperaMobile. Not Android or O-Mini</li>
+         <li class="txt">Old syntax supported iOS &amp; OperaMobile. BB. Not Android, AMZ or O-Mini</li>
  	 </ul> 
 </section>
 </div>
 
+<!-- Server / Client Handshake -->
 <div class="slide normal">
-<header><h1>Serer / Client Handshake</h1></header>
+<header><h1>Server / Client Handshake</h1></header>
 <section class="content">
 <pre contenteditable>GET /chat HTTP/1.1
 Connection: Upgrade 
@@ -486,6 +491,7 @@ Sec-WebSocket-Location: ws://example.com/chat
 </section>
 </div>
 
+<!-- Web Socket API Features -->
 <div class="slide normal">
 <header><h1>Web Socket API Features</h1></header>
 <section class="content">
@@ -509,6 +515,7 @@ close()</pre>
 </section>
 </div>
 
+<!-- Methods -->
 <div class="slide normal">
 <header><h1>Methods</h1></header>
 <section class="content"> 
@@ -529,7 +536,7 @@ socket.onclose = function(e){
 </section>
 </div>
 
-
+<!-- Socket Libraries -->
 <div class="slide normal"> 
      <header><h1>Libraries</h1></header> 
      <section class="content">
@@ -538,7 +545,7 @@ socket.onclose = function(e){
      </section>
 </div>
 
-
+<!-- History API -->
 <div class="slide">
       <header>
          <h1>History API
@@ -565,8 +572,7 @@ window.history.<b>forward()</b> <span class="notes">/* Goes forward one step &De
       </section>
   </div> 
 
-
-  
+<!-- Drag and Drop -->  
 <div class="slide">
   <header>
      <h1>Drag and Drop</h1>
@@ -678,7 +684,8 @@ window.history.<b>forward()</b> <span class="notes">/* Goes forward one step &De
             </script>
   </section>
 </div> 
-  
+
+<!-- FullScreen API -->
 <div class="slide normal"> 
 <header><h1>FullScreen API</h1></header> 
 <section class="content"> 
@@ -745,6 +752,7 @@ var exitFullScreen = function(){
 </script>
 </div> 
  
+<!-- FullScreen API -->
  <div class="slide normal"> 
 <header><h1></h1></header> 
 <section class="content"> 
@@ -775,41 +783,36 @@ document.addEventListener("webkitfullscreenchange"...
 </section>
 
 </div> 
- 
-  
- 
 
-
-     <div class="slide">
-      <header>
-         <h1>File API</h1>
-      </header>
-      <section class="content">
-        <ul>
-          <li>Import from the filesystem or the web.</li>
-          <li>Create new files from scratch.</li>
-          <li>Manipulate existing file data.</li>
-          <li>Store file data on the client.</li>
-          <li>Publish files back to the web.</li>
-        </ul>
-        <ul class="icons" style="clear: both;">
-         <li class="chrome">Chrome 6</li>
-         <li class="safari bad">Safari</li>
-         <li class="firefox">Firefox 3.6 </li>
-         <li class="opera">Opera 11.1</li>
-         <li class="ie new">IE 10</li>
-         <li class="txt">mobile: Android, BB 2+(partial), FF 11</li>
-     </ul>
-        <p>Tutorial: <a href="http://www.htmlfivewow.com/">Talk from Google I/O</a></p>
-      </section>
-  </div> 
+<!-- File API -->
+<div class="slide">
+<header>
+<h1>File API</h1>
+</header>
+<section class="content">
+<ul>
+<li>Import from the filesystem or the web.</li>
+<li>Create new files from scratch.</li>
+<li>Manipulate existing file data.</li>
+<li>Store file data on the client.</li>
+<li>Publish files back to the web.</li>
+</ul>
+<ul class="icons" style="clear: both;">
+<li class="chrome">Chrome 6</li>
+<li class="safari bad">Safari</li>
+<li class="firefox">Firefox 3.6 </li>
+<li class="opera">Opera 11.1</li>
+<li class="ie new">IE 10</li>
+<li class="txt">mobile: Android, BB 2+(partial), FF 11</li>
+</ul>
+<p>Tutorial: <a href="http://www.htmlfivewow.com/">Talk from Google I/O</a></p>
+</section>
+</div> 
   
-  
-  <div class="slide">
-      <header>
-         <h1>File API</h1>
-      </header>
-      <section class="content"> 
+<!-- File API -->  
+<div class="slide">
+<header><h1>File API</h1></header>
+<section class="content"> 
 <pre contenteditable>  &lt;input type="file" id="files" accept="image/*" multiple&gt;
 document.querySelector('#files').onchange = function(e) {
   var files = e.target.files; // FileList of File objects.
@@ -851,13 +854,10 @@ document.querySelector('#filereader-files').onchange = function(e) {
   
   
   
-  
-   <div class="slide">
-  <header>
-     <h1>JS Events and Methods
-     </h1>
-  </header>
-  <section class="content">
+<!-- JS Events and Methods -->  
+<div class="slide">
+<header><h1>JS Events and Methods</h1></header>
+<section class="content">
  <pre contenteditable>var elements = document.getElementsByClassName(className)</pre>
  <ul class="icons" style="clear: both;">
          <li class="chrome">Chrome 6</li>
@@ -885,13 +885,11 @@ var elements = $(selectors);</pre>
   </section>
 </div>
 
-   <div class="slide">
-      <header>
-         <h1>classList
-         </h1>
-      </header>
-      <section class="content">
-        <pre contenteditable>&lt;article id=&quot;main&quot; class="blogpost popup"&gt;&lt;/article&gt;</pre>
+<!-- classList -->
+<div class="slide">
+<header><h1>classList</h1></header>
+<section class="content">
+<pre contenteditable>&lt;article id=&quot;main&quot; class="blogpost popup"&gt;&lt;/article&gt;</pre>
         <pre contenteditable>var el = document.getElementById('main').<b>classList</b>;
 var el = document.querySelector('#main').<b>classList</b>;
 el.<b>add</b>('bgimage');<br>el.<b>remove</b>('blogpost');
@@ -914,7 +912,7 @@ console.log(el.<b>classList</b>.toString() == el.className); // true</pre>
   
   
   
-  
+<!-- Notifications -->  
   <div class="slide" id="notifications-api">
         
           <header><h1>Notifications</h1></header>
@@ -963,7 +961,8 @@ console.log(el.<b>classList</b>.toString() == el.className); // true</pre>
           </section>
         </div>
   
-  <div class="slide intro">
+<!-- Intro Mobile Web Performance Considerations -->
+<div class="slide intro">
 <header><h1>Mobile Web Performance Considerations</h1></header>
     
 
