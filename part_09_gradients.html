@@ -253,6 +253,21 @@ background-repeat:repeat;
 background-color: red;
 }
 input[type=range] {width: 360px;}
+input[type=color]:invalid:focus {background-color:#ccc;}
+
+ .grad {
+	width: 250px;
+	height: 180px;
+	margin: 0 20px 20px 0px;
+	float: left;
+	border-radius: 150px;
+	background-repeat: repeat;
+ }
+ .grad1 {
+	 background-repeat: repeat;
+ }
+ .grad1 header {background-color: rgba(255,255,255,0.8);}
+ 
 /* color: #C7573A; 
 BDD9D5*/
  </style>
@@ -315,19 +330,85 @@ BDD9D5*/
      </section>
  </div>
  
+
 <!-- library examples -->
-<div class="slide normal"> 
-     <header><h1>Other Gradients</h1></header> 
+<div class="slide normal greenbean grad1" id="slide1"> 
+     <header><h1>Plaid</h1></header> 
      <section class="content">
-     <div class="greenbean grad"></div>
-         <div class="metal grad"></div>  
-     <div class="classic grad"></div> 
-         <div class="inverse1 grad"></div>  
-         <div class="bradybunch grad"></div>  
-     <div class="tiltdavid grad"></div>  
-         <div class="retro67 grad"></div>   
-     <div class="blurry grad"></div>
-         <div class="circlestripes grad"></div>  
+     <input type="color" pattern="#[a-fA-F0-9]{6}"   onChange="document.getElementById('slide1').style.backgroundColor = this.value;"> 
+     </section>
+ </div> 
+ 
+ 
+<!-- library examples -->
+<div class="slide normal metal grad1"  id="slide2"> 
+     <header><h1>Metal Grid</h1></header> 
+     <section class="content"> 
+     <input type="color" pattern="#[a-fA-F0-9]{6}"   onChange="document.getElementById('slide2').style.backgroundColor = this.value;"> 
+     </section>
+ </div> 
+ 
+ 
+<!-- library examples -->
+<div class="slide normal classic grad1"  id="slide3"> 
+     <header><h1>Classic</h1></header> 
+     <section class="content"> 
+     <input type="color" pattern="#[a-fA-F0-9]{6}"   onChange="document.getElementById('slide3').style.backgroundColor = this.value;"> 
+     </section>
+ </div> 
+ 
+ 
+<!-- library examples -->
+<div class="slide normal inverse1 grad1"  id="slide4"> 
+     <header><h1>Disco Ball</h1></header> 
+     <section class="content"> 
+     <input type="range" min="5" max="50" onChange="document.getElementById('slide4').style.backgroundSize = this.value + 'px,' + this.value + 'px,100%';"> 
+     </section>
+ </div>  
+ 
+<!-- library examples -->
+<div class="slide normal tiltdavid grad1"  id="slide5"> 
+     <header><h1>Star of David</h1></header> 
+     <section class="content"> 
+     <input type="color" pattern="#[a-fA-F0-9]{6}"   onChange="document.getElementById('slide5').style.backgroundColor = this.value;"> 
+     </section>
+ </div>
+ 
+ <!-- library examples -->
+<div class="slide normal retro67 grad1"  id="slide6"> 
+     <header><h1>Retro 1967</h1></header> 
+     <section class="content"> 
+     <input type="color" pattern="#[a-fA-F0-9]{6}"   onChange="document.getElementById('slide6').style.backgroundColor = this.value;"> 
+     </section>
+ </div>
+ 
+ <!-- library examples -->
+<div class="slide normal blurry grad1"  id="slide7"> 
+     <header><h1>Seat Cushion</h1></header> 
+     <section class="content"> 
+     <input type="color" pattern="#[a-fA-F0-9]{6}"   onChange="document.getElementById('slide7').style.backgroundColor = this.value;"> 
+     </section>
+ </div> 
+ <!-- library examples -->
+<div class="slide normal circlestripes grad1"  id="slide8"> 
+     <header><h1>circles &amp; Stripes</h1></header> 
+     <section class="content"> 
+     <input type="color" pattern="#[a-fA-F0-9]{6}"   onChange="document.getElementById('slide8').style.backgroundColor = this.value;"> 
+     </section>
+ </div> 
+ <!-- library examples -->
+<div class="slide normal bradybunch grad1"  id="slide9"> 
+     <header><h1>Brady Brunch</h1></header> 
+     <section class="content"> 
+     <input type="color" pattern="#[a-fA-F0-9]{6}"   onChange="document.getElementById('slide9').style.backgroundColor = this.value;"> 
+     <input type="range" min="10" max="210" step="10" onChange="alter(this.value)"> 
+     <script>
+	 function alter(sz) {
+		 sz2 = sz +"px "
+		 	document.getElementById('slide9').style.backgroundSize = sz2 + sz2; 
+			document.getElementById('slide9').style.backgroundPosition = "0 0, " + sz/2 + 'px ' + sz/2 + 'px';
+	 }
+	 </script> 
      </section>
  </div> 
  
