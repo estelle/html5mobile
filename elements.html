@@ -68,7 +68,7 @@
         <li>WebGL - 3D Canvas graphics</li>
         </ul>
       </section>
-  </div>  
+</div>  
   
      <!-- <div class="slide" style="padding:0; overflow:hidden;"> 
     
@@ -157,7 +157,7 @@ function newDoctype(el){
 
       <pre contenteditable>
 &lt;!DOCTYPE html&gt;
-&lt;title&gt;Tweetable Docoument&lt;/title&gt;
+&lt;title&gt;Tweetable Document&lt;/title&gt;
 &lt;p&gt;Tweetable HTML5&lt;/p&gt;
 </pre>
 
@@ -189,7 +189,7 @@ function newDoctype(el){
                         <div class="divsection">&lt;div class="section"&gt;</div>
                         <div class="divsection">&lt;div class="section"&gt;</div>
                     </div>
-                </div>
+          </div>
             <div class="divfooter">&lt;div class="footer"&gt;</div>
         </div>
     </section>
@@ -211,7 +211,7 @@ function newDoctype(el){
                       <div class="divsection">&lt;section&gt;</div>
                         <div class="divsection">&lt;section&gt;</div>
                     </div>
-                </div>
+          </div>
             <div class="divfooter">&lt;footer&gt;</div>
         </div>
     </section>
@@ -384,8 +384,32 @@ function newDoctype(el){
         </ul>
      </div>
      </section>
-  </div>
+</div>
+ 
+<div class="slide normal"> 
+<header><h1>Exercise: convert page to HTML5</h1></header> 
+<section class="content"> 
+<iframe style="float: right; with: 380px; height:485px;border-right: 4px solid #ccc;" src="files/tmobile/sample04.html"></iframe>
+<ul>
+	<li>Download the <a href="files/tmobile.zip">zip file</a></li>
+    <li>Open up sample01.html</li>
+    <li>Make appropriate changes:
+    	<ol>
+		    <li>Convert the DTD to HTML5.</li>
+		    <li>Minify the meta tag</li>
+		    <li>Remove excess noise from the link tag</li>
+		    <li>Convert the DTD to HTML5.</li>
+            <li>Convert everything not nested in &lt;li>'s into HTML5 elments, removing classes and ID's that are no longer necessary</li>
+            </ol>
+     </li>
+     <li>Compare to sample02.html, which is a possible solution</li>
+     </ul>
+     
+</section>
+</div> 
+ 
   
+ 
      <div class="slide">
       <header>
          <h1>Supporting Old Browsers
@@ -418,7 +442,7 @@ function newDoctype(el){
      </section>
      </object>
      <a href="http://www.modernizr.com/" class="objectlink" target="resource">www.modernizr.com</a> 
-    </div>
+</div>
   
 <div class="slide object" style="padding:0; overflow:hidden">
       <object data="http://www.html5boilerplate.com/" style="height: 100%;
@@ -427,7 +451,7 @@ overflow:scroll; text-align:center ">
              
      </object>
      <a href="http://www.html5boilerplate.com/" class="objectlink" target="resource">www.html5boilerplate.com</a> 
-  </div>
+</div>
   
   
    
@@ -526,7 +550,7 @@ overflow:scroll; text-align:center ">
          </h1>
       </header>
       <section class="content">
-      <pre contenteditable>&ltp tabindex="-1">Focusable with Javascript&lt;/p></pre>
+      <pre contenteditable>&lt;p tabindex="-1">Focusable with Javascript&lt;/p></pre>
       <ul>
       <li>Every element can have tabindex</li>
       <li>BUT: Maintaining source order is important</li>
@@ -585,7 +609,7 @@ var currentCard = cardinfo.join('');</pre>
         <p>Result:</p>
         <pre contenteditable>currentCard == 'cardID: 27, row: 3, col: 2'</pre>
         <pre contenteditable>var cardID = info.getAttribute('data-cardID'); //27</pre>
-        <p><small>All browsers support "data-*", but full support of 'dataset started with IE10, FF6, Safari 5.1, Chrome 7, Opera 11.1. Supported in iOS and Android. <a href="http://eligrey.com/blog/post/html-5-dataset-support">Pollyfill</a> | <a href="http://www.orangesoda.net/jquery.dataset.html">jQuery Polyfill</a></small></p>
+        <p><small>All browsers support "data-*", but full support of 'dataset started with IE10, FF6, Safari 5.1, Chrome 7, Opera 11.1. Supported in iOS and Android. <a href="http://eligrey.com/blog/post/html-5-dataset-support">Polly fill</a> | <a href="http://www.orangesoda.net/jquery.dataset.html">jQuery Polyfill</a></small></p>
      
       </section>
   </div>
@@ -613,7 +637,7 @@ role         acquaintance
  &lt;img src="estelle.gif" itemprop="photo">  
   &lt;p>Name: &lt;i itemprop="name">Estelle Weyl&lt;/i>
   &lt;p>Title: &lt;i itemprop="title">Speaker, UI Engineer&lt;/i>   
-  &lt;p>Blog: &lt;a href="http://standardista.com" itemprop="affliation">Standardista</a>.   
+  &lt;p>Blog: &lt;a href="http://standardista.com" itemprop="affiliation">Standardista</a>.   
   &lt;p itemprop="address" itemscope  
     itemtype="http://data-vocabulary.org/Address">Address:   
     &lt;i itemprop="locality">San Carlos&lt;/i>,  
@@ -621,7 +645,7 @@ role         acquaintance
 &lt;/div></pre>  
       
       </section>
-  </div> 
+</div> 
   
     <div class="slide">
       <header>
