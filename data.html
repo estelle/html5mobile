@@ -60,7 +60,6 @@ saveButton.addEventListener('click', function () {
 }, false);
 textarea.value = window.<b>localStorage</b>.<b>getItem(</b>'value'<b>)</b>;
 window.localStorage.<b>clear()</b>;
-//localStorage.<b>removeItem(</b>'timestamp'<b>)</b>;
 </pre> 
             <p id="localstorage-message">Save text value on the client side (crash-safe)</p> 
             <textarea id="ls" placeholder="Type your text here..."></textarea> 
@@ -74,7 +73,8 @@ window.localStorage.<b>clear()</b>;
 	el.innerHTML = window.localStorage.getItem('value');</pre> 
     
     <pre contenteditable>var items = window.localStorage.length;
-var lastItem = window.localStorage.key(items-1);</pre>
+var lastItem = window.localStorage.key(items-1);
+localStorage.<b>removeItem(</b>'timestamp'<b>)</b>;</pre>
 <script defer> 
   (function(){
 	// if local storage not supported, quit
