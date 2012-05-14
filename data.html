@@ -72,6 +72,9 @@ window.localStorage.<b>clear()</b>;
  <pre contenteditable>	var el = document.querySelector('#myID');
 	// place content from local storage on load if there is one
 	el.innerHTML = window.localStorage.getItem('value');</pre> 
+    
+    <pre contenteditable>var items = window.localStorage.length;
+var lastItem = window.localStorage.key(items-1);</pre>
 <script defer> 
   (function(){
 	// if local storage not supported, quit
