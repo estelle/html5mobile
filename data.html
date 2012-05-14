@@ -63,7 +63,8 @@ textarea.value = window.<b>localStorage</b>.<b>getItem</b>('value');
             <p id="localstorage-message">Save text value on the client side (crash-safe)</p> 
             <textarea id="ls" placeholder="Type your text here..."></textarea> 
             <input type="button" value="save" id="savelocalstorage" class="button"/>
-            <input type=button id="savelocalstorage" class="button" onClick="window.open('localstorageiframe.html', 'ls', 'width=200,height=200')" value="Open Test"/> 
+            <input type=button id="savelocalstorage" class="button" onClick="window.open('localstorageiframe.html', 'ls', 'width=200,height=200')" value="Open Test"/>
+            <input type="button" value="Clear" id="clearLocalstorage" class="button"/> 
             <p id="lsLog"></p>
            
  <pre contenteditable>	var el = document.querySelector('#myID');
@@ -90,6 +91,11 @@ textarea.value = window.<b>localStorage</b>.<b>getItem</b>('value');
 	
 	
 	// your content will be saved locally
+	document.querySelector('#clearLocalstorage').addEventListener('click', function () {
+	  window.localStorage.clear();
+	}, false);
+	
+	
 	document.querySelector('#savelocalstorage').addEventListener('click', function () {
 	  window.localStorage.setItem('value', textarea.value);
 	  window.localStorage.setItem('timestamp', (new Date()).getTime());
