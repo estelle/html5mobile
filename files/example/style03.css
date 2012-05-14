@@ -1,13 +1,13 @@
 @charset "UTF-8";
-/* CSS Document */
-html {
+/* CSS Selectors */
+/* use a pseudo class to target the HTML element */
+XXXX {
 	background-color: #fff;	
 }
 body {
 	margin: 0;
 	background-color: #eaeaea;
-	/* Give the background a gradient from #fcfcfc to #eaeaea */
-	
+	background-image: -webkit-linear-gradient(#fcfcfc, #eaeaea);
 	font-family:verdana, Helvetica, Arial, sans-serif;	
 }
 p, h1, h2, h3, li, ul {
@@ -25,14 +25,17 @@ h1, h2, h3 {
 	color: #D6007D; 
 	font-size: 16px;
 	font-weight: normal;}
-/* make the following appear in only browsers that are too large to be mobile 
+/* make the page appear like a phone app when opened on a large monitor by enxuring that if the page is larger than 640px, it should use the following CSS:
+
+PUT A QUERY  HERE {
 	body {
 		width: 360px;
 		float:left;
 		border:1px solid;
 		box-sizing:border-box;
 	}
-*/
+} */
+
 
 /* only hit the header and footer that are direct chilren of the body */
 body  header,
@@ -43,10 +46,10 @@ body  footer {
 }
 /* only hit the header if it's a direct child of the body */
 body  header{
-	/* make the header look like it's convex */
-	
-	/* add some shoadow on the text */
-	
+	box-shadow: 
+		inset 0 6px 8px rgba(255,255,255,0.5),
+		inset 0 -6px 12px rgba(0,0,0,0.3);
+	text-shadow: 0 0 3px rgba(0,0,0,0.5);
 	font-size: 14px;
 	line-height: 26px;
 }
@@ -64,23 +67,22 @@ section header {
 		float: right;
 	}
 section aside {
-	/* make the corners round */
-	
-	/* give it a shadow */
-	
+	border-radius: 10px;
+	box-shadow: 0 5px 3px rgba(0,0,0,0.5);
 	margin: 10px;
 	border-top: 1px solid #fff;
 	padding: 8px;
 	background-color: #ccc;
-	/* create the effect for the background color */
-	
-	
-	
+	background-image: -webkit-linear-gradient(
+		rgba(255,255,255,0.2) 50%,
+		rgba(255,255,255,0.0) 50%,
+		rgba(255,255,255,1.0)
+	);
 }
 aside * {
 	margin-top: 0;
 	margin-bottom: 0;	
-	/* make the text appear fatter, but not bold*/
+	text-shadow: 0 0 1px currentColor;
 }	
 aside p {
 	color: #333;	
@@ -92,38 +94,33 @@ aside a {
 nav {
  	background-color: #09758B;
 	padding: 5px 8px;
-	/* make the background transition from lighter to darker */
-	
-	
+	background-image: -webkit-linear-gradient(
+		rgba(255,255,255,0.5),
+		rgba(255,255,255,0.1));
 	width:100%; float:left;
-	/* change the box model so it's not wider than 100% */
+	box-sizing:border-box;
 	
 }
 nav ul {
 	border-radius: 5px;
 	background-color: #09758B;
 	padding: 5px 8px;
-	/* make the background transition from darker to lighter */
-	
-	
+	background-image: -webkit-linear-gradient(bottom,
+		rgba(255,255,255,0.5),
+		rgba(255,255,255,0.1));
 	padding: 0;
 	width:100%; float:left;
-	/* change the box model so it's not wider than 100% */
-	
-	/* make the navigation look sunken */
-	
-	
+	box-sizing:border-box;
+	box-shadow: inset -1px 0 5px rgba(0,0,0,0.4);
 }
 nav li {
 	margin:0; padding: 0;
 	float: left;
 	width: 25%;	
-	/* change the box model so 4 * 25% = 100% */
-	
+	box-sizing: border-box;
 	text-align: center;
 	color: #ffffff;
-	/*make the text pop */
-	
+	text-shadow: 0 0 2px #09758B;
 	border-right: 1px solid #09758B;
 	border-left: 1px solid #A4D9F4;
 	padding: 6px 0; line-height:2.5em;
@@ -144,11 +141,14 @@ nav li{
 }
 
 */
-
-nav li.active {
-	background-color: #09758B;
+nav li.active {background-color: #09758B;
+	background-image: -webkit-linear-gradient(
+		rgba(255,255,255,0.7) 30%,
+		rgba(255,255,255,0.5) 50%,
+		rgba(255,255,255,0.3));
 	border: none;
-	/* give us 1) gradient, 2) rounded corners of 5px, 3) a pop */
+	border-radius: 5px;
+	box-shadow: inset 1px 1px 5px rgba(0,0,0,0.6);
 }
 
 /* only the list item to the right of the active link should have no left border
