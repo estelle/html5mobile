@@ -56,9 +56,11 @@
           <section> 
 <pre contenteditable> 
 saveButton.addEventListener('click', function () {
-  window.<b>localStorage</b>.<b>setItem</b>('value', textarea.value);
+  window.<b>localStorage</b>.<b>setItem(</b>'value', textarea.value<b>)</b>;
 }, false);
-textarea.value = window.<b>localStorage</b>.<b>getItem</b>('value');
+textarea.value = window.<b>localStorage</b>.<b>getItem(</b>'value'<b>)</b>;
+window.localStorage.<b>clear()</b>;
+//localStorage.<b>removeItem(</b>'timestamp'<b>)</b>;
 </pre> 
             <p id="localstorage-message">Save text value on the client side (crash-safe)</p> 
             <textarea id="ls" placeholder="Type your text here..."></textarea> 
