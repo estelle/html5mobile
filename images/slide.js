@@ -491,6 +491,22 @@ var slides = function() {
 
       toggleClass(document.body, 'three-d');
     },
+	
+	addNotes: function(){
+		var ta = document.createElement('textarea');
+		var currentSlide = document.querySelector('.current section');
+		var path = window.location.pathname
+		var firstPartOfKey = path.substring(path.lastIndexOf('/') +1, path.length-5);
+		//console.log(firstPartOfKey);
+		var key = firstPartOfKey +  window.location.hash;
+		ta.value = window.localStorage.getItem(key) || '';
+		
+		ta.addEventListener('keyup', function(){
+			//console.log(key + ' ' + ta.value)
+		    window.localStorage.setItem(key,ta.value);
+		});
+		currentSlide.appendChild(ta);
+	},
 
     handleWheel: function(e) {
 
@@ -533,19 +549,23 @@ var slides = function() {
         case 37: 
         case 33: // left arrow
           this.prev(); break;
+		  
         case 39: // right arrow
-
         case 34:
         case 32: // space
-
           this.next(); break;
+		  
         case 50:
 		case 190: // 2
 		  console.log(e.keyCode);
           this.showNotes(); break;
-        case 51: // 3
-
+		  
+        case 51:  // 3
           this.switch3D(); break;
+		  
+		case 52:  // 4
+		  this.addNotes(); break;
+		  
 		case 116:
 		case 27:
 		location.reload(true); return false; break;
