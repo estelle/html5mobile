@@ -496,7 +496,7 @@ var slides = function() {
 		var ta = document.createElement('textarea');
 		var currentSlide = document.querySelector('.current section');
 		var path = window.location.pathname
-		var firstPartOfKey = path.substring(path.lastIndexOf('/') +1, path.length-5);
+		var firstPartOfKey = path.substring(path.lastIndexOf('/') +1, path.lastIndexOf('.') +1);
 		//console.log(firstPartOfKey);
 		var key = firstPartOfKey +  window.location.hash;
 		ta.value = window.localStorage.getItem(key) || '';
