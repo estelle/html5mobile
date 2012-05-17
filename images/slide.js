@@ -493,10 +493,17 @@ var slides = function() {
     },
 	
 	addNotes: function(){
-		var ta = document.createElement('textarea');
-		var currentSlide = document.querySelector('.current section');
-		var path = window.location.pathname
-		var firstPartOfKey = path.substring(path.lastIndexOf('/') +1, path.lastIndexOf('.') +1);
+		var ta = document.createElement('textarea'),
+		     currentSlide = document.querySelector('.current section'),
+			 path = window.location.pathname,
+			 A = path.lastIndexOf('/') +1, 
+			 B = path.lastIndexOf('.') +1,
+			 firstPartOfKey;
+		if(B > A){	 
+		    firstPartOfKey = path.substring(path.lastIndexOf('/') +1, path.lastIndexOf('.') +1);
+		} else {
+		    firstPartOfKey = 'index';	
+		}
 		//console.log(firstPartOfKey);
 		var key = firstPartOfKey +  window.location.hash;
 		ta.value = window.localStorage.getItem(key) || '';
