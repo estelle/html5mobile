@@ -499,6 +499,7 @@ var slides = function() {
 			 A = path.lastIndexOf('/') +1, 
 			 B = path.lastIndexOf('.') +1,
 			 firstPartOfKey;
+			 console.log('A: ' + A + ', B: ' + B);
 		if(B > A){	 
 		    firstPartOfKey = path.substring(path.lastIndexOf('/') +1, path.lastIndexOf('.') +1);
 		} else {
