@@ -496,17 +496,16 @@ var slides = function() {
 		var ta = document.createElement('textarea'),
 		     currentSlide = document.querySelector('.current section'),
 			 path = window.location.pathname,
-			 A = path.lastIndexOf('/') +1, 
-			 B = path.lastIndexOf('.') +1,
-			 firstPartOfKey;
-			 console.log('A: ' + A + ', B: ' + B);
+			 A = path.lastIndexOf('/') + 1, 
+			 B = path.lastIndexOf('.'),
+			 firstPartOfKey, key;
 		if(B && B > A){	 
-		    firstPartOfKey = path.substring(path.lastIndexOf('/') +1, path.lastIndexOf('.') +1);
+		    firstPartOfKey = path.substring(A, B);
 		} else {
-		    firstPartOfKey = 'index';	
+		    firstPartOfKey = path || 'home';	
 		}
 		//console.log(firstPartOfKey);
-		var key = firstPartOfKey +  window.location.hash;
+		key = firstPartOfKey +  window.location.hash;
 		ta.value = window.localStorage.getItem(key) || '';
 		
 		ta.addEventListener('keyup', function(){
